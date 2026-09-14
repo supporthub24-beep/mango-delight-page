@@ -142,3 +142,10 @@
     color: var(--color-foreground);
   }
 }
+
+#lovable-badge,
+[data-lovable-badge],
+a[href*="lovable.dev"],
+a[href*="lovable.com"] {
+  display: none !important;
+}
