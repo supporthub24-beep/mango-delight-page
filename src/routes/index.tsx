@@ -54,6 +54,7 @@ type MangoVariety = {
   unit: string;
   description: string;
   image: string;
+  fallbackImage: string;
   tag?: string;
   rating: number;
   reviews: number;
@@ -67,7 +68,9 @@ const mangoVarieties: MangoVariety[] = [
     pricePerKg: 120,
     unit: "প্রতি কেজি",
     description: "চাঁপাইনবাবগঞ্জের বিখ্যাত হিমসাগর — আঁশহীন, মিষ্টি ও রসালো।",
-    image: "/mangoes/himsagar.jpg",
+    image: "/generated/fresh-mangoes-hero-1789372889512.png",
+    fallbackImage:
+      "https://images.unsplash.com/photo-1591073113125-e46713c829ed?q=80&w=1000&auto=format&fit=crop",
     tag: "বেস্ট সেলার",
     rating: 4.9,
     reviews: 128,
@@ -79,7 +82,10 @@ const mangoVarieties: MangoVariety[] = [
     pricePerKg: 110,
     unit: "প্রতি কেজি",
     description: "সুগন্ধি ও মিষ্টি ল্যাংড়া আম, পাকলে সোনালি রঙ ধারণ করে।",
-    image: "/mangoes/langra.jpg",
+    image:
+      "https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?q=80&w=1000&auto=format&fit=crop",
+    fallbackImage:
+      "https://images.unsplash.com/photo-1553279768-865429fa0078?q=80&w=1000&auto=format&fit=crop",
     rating: 4.8,
     reviews: 96,
   },
@@ -90,7 +96,10 @@ const mangoVarieties: MangoVariety[] = [
     pricePerKg: 100,
     unit: "প্রতি কেজি",
     description: "গাঢ় কমলা রঙের আম্রপালি, অত্যন্ত মিষ্টি ও পুষ্টিকর।",
-    image: "/mangoes/amrapali.jpg",
+    image:
+      "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?q=80&w=1000&auto=format&fit=crop",
+    fallbackImage:
+      "https://images.unsplash.com/photo-1591073113125-e46713c829ed?q=80&w=1000&auto=format&fit=crop",
     rating: 4.7,
     reviews: 74,
   },
@@ -101,11 +110,20 @@ const mangoVarieties: MangoVariety[] = [
     pricePerKg: 90,
     unit: "প্রতি কেজি",
     description: "বড় আকারের ফজলি আম, আঁশবিহীন ও দীর্ঘদিন সংরক্ষণযোগ্য।",
-    image: "/mangoes/fazli.jpg",
+    image:
+      "https://images.unsplash.com/photo-1553279768-865429fa0078?q=80&w=1000&auto=format&fit=crop",
+    fallbackImage:
+      "https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?q=80&w=1000&auto=format&fit=crop",
     rating: 4.6,
     reviews: 58,
   },
 ];
+
+const HERO_IMAGE_PATH = "/generated/fresh-mangoes-hero-1789372889512.png";
+const HERO_FALLBACK_IMAGE =
+  "https://images.unsplash.com/photo-1553279768-865429fa0078?q=80&w=1200&auto=format&fit=crop";
+const QUALITY_FALLBACK_IMAGE =
+  "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?q=80&w=1200&auto=format&fit=crop";
 
 const weightOptions = [3, 5, 10];
 
@@ -252,8 +270,6 @@ function MangoLandingPage() {
     return () => clearInterval(interval);
   }, []);
 
-  const totalItems = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
-
   const totalPrice = useMemo(() => {
     return Object.entries(cart).reduce((sum, [id, qty]) => {
       const variety = mangoVarieties.find((v) => v.id === id);
@@ -308,6 +324,16 @@ function MangoLandingPage() {
   };
 
   const formatPrice = (price: number) => `৳${price.toLocaleString("bn-BD")}`;
+
+  const handleImageFallback = (
+    e: React.SyntheticEvent<HTMLImageElement, Event>,
+    fallbackUrl: string,
+  ) => {
+    const target = e.currentTarget;
+    if (target.src !== fallbackUrl) {
+      target.src = fallbackUrl;
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#FFF9E8]">
@@ -386,12 +412,15 @@ function MangoLandingPage() {
               </div>
             </div>
             <div className="relative">
-              <img
-                src="/mangoes/hero-mango.jpg"
-                alt="বাগানে ঝুলে থাকা পাকা সোনালি আম"
-                className="mx-auto w-full max-w-md rounded-2xl object-cover shadow-2xl"
-                loading="eager"
-              />
+              <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-2xl">
+                <img
+                  src={HERO_IMAGE_PATH}
+                  onError={(e) => handleImageFallback(e, HERO_FALLBACK_IMAGE)}
+                  alt="বাগানে ঝুলে থাকা পাকা সোনালি তাজা আম"
+                  className="h-full w-full object-cover object-center transition-transform duration-300 hover:scale-105"
+                  loading="eager"
+                />
+              </div>
               <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-[#F6B800] px-4 py-2 text-sm font-bold text-[#174A2E] shadow-lg">
                 মৌসুমি অফার — ১০% ছাড়
               </div>
@@ -415,7 +444,7 @@ function MangoLandingPage() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {Array.from({ length: 4 }).map((_, i) => (
               <Card key={i} className="overflow-hidden">
-                <Skeleton className="h-48 w-full" />
+                <Skeleton className="h-52 w-full" />
                 <CardHeader>
                   <Skeleton className="h-6 w-3/4" />
                 </CardHeader>
@@ -442,11 +471,12 @@ function MangoLandingPage() {
               const livePrice = variety.pricePerKg * selectedWeight;
               return (
                 <Card key={variety.id} className="flex flex-col overflow-hidden border-[#2E7D32]/20">
-                  <div className="relative">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
                     <img
                       src={variety.image}
+                      onError={(e) => handleImageFallback(e, variety.fallbackImage)}
                       alt={`${variety.banglaName} (${variety.name}) আম`}
-                      className="h-48 w-full object-cover"
+                      className="h-full w-full object-cover object-center transition-transform duration-300 hover:scale-105"
                       loading="lazy"
                     />
                     {variety.tag && (
@@ -579,12 +609,15 @@ function MangoLandingPage() {
             </ul>
           </div>
           <div className="relative">
-            <img
-              src="/mangoes/quality-check.jpg"
-              alt="আমের মান যাচাই করা হচ্ছে"
-              className="w-full rounded-2xl object-cover shadow-lg"
-              loading="lazy"
-            />
+            <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-lg">
+              <img
+                src={QUALITY_FALLBACK_IMAGE}
+                onError={(e) => handleImageFallback(e, QUALITY_FALLBACK_IMAGE)}
+                alt="আমের মান যাচাই করা হচ্ছে"
+                className="h-full w-full object-cover object-center"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>
