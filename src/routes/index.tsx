@@ -16,6 +16,8 @@ import {
   Facebook,
   Instagram,
   Youtube,
+  Sparkles,
+  ArrowRight,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -336,24 +338,26 @@ function MangoLandingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FFF9E8]">
-      {/* Countdown Offer Banner */}
-      <div className="bg-[#174A2E] text-white">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-3 py-2.5 sm:flex-row sm:px-6 sm:py-3 lg:px-8">
-          <p className="flex items-center gap-1.5 text-xs font-medium sm:text-sm">
-            <Clock className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4" aria-hidden="true" />
-            <span>মৌসুমি অফার — ১০% ছাড় শেষ হতে বাকি:</span>
+    <div className="min-h-screen bg-[#FFF9E8] antialiased">
+      {/* Top Offer Bar */}
+      <div className="relative bg-[#174A2E] text-white">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-3 sm:flex-row sm:px-6 lg:px-8">
+          <p className="flex items-center gap-2 text-xs font-medium sm:text-sm">
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#F6B800]/20">
+              <Clock className="h-3.5 w-3.5 text-[#F6B800]" aria-hidden="true" />
+            </span>
+            <span className="tracking-wide">মৌসুমি অফার — ১০% ছাড় শেষ হতে বাকি</span>
           </p>
           <div className="flex items-center gap-1.5" role="timer" aria-label="অফার শেষ হওয়ার সময়">
-            <span className="rounded bg-[#F6B800] px-1.5 py-0.5 font-mono text-xs font-bold text-[#174A2E] sm:px-2 sm:py-1 sm:text-sm">
+            <span className="rounded-lg bg-[#F6B800] px-2 py-1 font-mono text-xs font-bold tracking-widest text-[#174A2E] sm:px-2.5 sm:text-sm">
               {String(timeLeft.hours).padStart(2, "0")}
             </span>
-            <span className="text-xs font-bold text-[#F6B800] sm:text-sm">:</span>
-            <span className="rounded bg-[#F6B800] px-1.5 py-0.5 font-mono text-xs font-bold text-[#174A2E] sm:px-2 sm:py-1 sm:text-sm">
+            <span className="font-bold text-[#F6B800]">:</span>
+            <span className="rounded-lg bg-[#F6B800] px-2 py-1 font-mono text-xs font-bold tracking-widest text-[#174A2E] sm:px-2.5 sm:text-sm">
               {String(timeLeft.minutes).padStart(2, "0")}
             </span>
-            <span className="text-xs font-bold text-[#F6B800] sm:text-sm">:</span>
-            <span className="rounded bg-[#F6B800] px-1.5 py-0.5 font-mono text-xs font-bold text-[#174A2E] sm:px-2 sm:py-1 sm:text-sm">
+            <span className="font-bold text-[#F6B800]">:</span>
+            <span className="rounded-lg bg-[#F6B800] px-2 py-1 font-mono text-xs font-bold tracking-widest text-[#174A2E] sm:px-2.5 sm:text-sm">
               {String(timeLeft.seconds).padStart(2, "0")}
             </span>
           </div>
@@ -361,68 +365,118 @@ function MangoLandingPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#F6B800]/20 via-[#FFF9E8] to-[#FFF9E8]">
-        <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
-          <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F6B800]/15 via-[#FFF9E8] to-[#FFF9E8]" aria-hidden="true" />
+        <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-[#F6B800]/20 blur-3xl sm:h-96 sm:w-96" aria-hidden="true" />
+        <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-[#2E7D32]/10 blur-3xl" aria-hidden="true" />
+        <div className="relative mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
             <div className="text-center lg:text-left">
-              <Badge className="mb-3 inline-flex bg-[#F6B800] text-xs font-semibold text-[#174A2E] hover:bg-[#F6B800]/90 sm:mb-4 sm:text-sm">
-                <Award className="mr-1 h-3.5 w-3.5" aria-hidden="true" />
-                আমঘর — বিশ্বস্ত আম বিক্রেতা
-              </Badge>
-              <h1 className="text-2xl font-bold leading-tight tracking-tight text-[#174A2E] xs:text-3xl sm:text-5xl lg:text-6xl">
-                তাজা আম, সরাসরি বাগান থেকে আপনার ঘরে
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#174A2E]/10 bg-white px-3 py-1.5 shadow-sm">
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#F6B800]">
+                  <Award className="h-3.5 w-3.5 text-[#174A2E]" aria-hidden="true" />
+                </span>
+                <span className="text-xs font-semibold tracking-wide text-[#174A2E] sm:text-sm">
+                  আমঘর — বিশ্বস্ত আম বিক্রেতা ২০১৮ থেকে
+                </span>
+                <Sparkles className="hidden h-3.5 w-3.5 text-[#F6B800] sm:block" aria-hidden="true" />
+              </div>
+
+              <h1 className="mt-5 text-balance text-[28px] font-extrabold leading-[1.05] tracking-tight text-[#174A2E] sm:mt-6 sm:text-5xl lg:text-[56px]">
+                তাজা আম,
+                <span className="relative inline-block">
+                  <span className="relative z-10 px-1"> সরাসরি বাগান</span>
+                  <span className="absolute bottom-1 left-0 -z-0 h-3 w-full bg-[#F6B800]/30 sm:h-4" aria-hidden="true" />
+                </span>{" "}
+                থেকে আপনার ঘরে
               </h1>
-              <p className="mt-3 text-sm leading-relaxed text-[#174A2E]/80 sm:mt-6 sm:text-lg">
+
+              <p className="mx-auto mt-4 max-w-xl text-pretty text-sm leading-relaxed text-[#174A2E]/75 sm:mt-5 sm:text-[17px] sm:leading-7 lg:mx-0">
                 চাঁপাইনবাবগঞ্জ ও রাজশাহীর সেরা বাগান থেকে বাছাই করা মিষ্টি ও রসালো আম।
-                ফরমালিনমুক্ত, সারা দেশে হোম ডেলিভারি, ক্যাশ অন ডেলিভারি।
+                ফরমালিনমুক্ত, হাতে বাছাই করা — সারা দেশে হোম ডেলিভারি।
               </p>
-              <div className="mt-6 flex flex-col gap-2.5 sm:mt-8 sm:flex-row sm:justify-center lg:justify-start">
+
+              <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:justify-center lg:justify-start">
                 <Button
                   size="lg"
-                  className="h-12 w-full bg-[#2E7D32] text-base font-semibold text-white hover:bg-[#2E7D32]/90 sm:w-auto"
+                  className="h-[52px] w-full rounded-xl bg-[#2E7D32] px-8 text-[15px] font-bold tracking-wide text-white shadow-lg shadow-[#2E7D32]/20 transition-all hover:bg-[#256628] hover:shadow-xl hover:shadow-[#2E7D32]/25 sm:w-auto"
                   asChild
                 >
-                  <a href="#varieties">আম দেখুন</a>
+                  <a href="#varieties">
+                    আম দেখুন
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </a>
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="h-12 w-full border-[#2E7D32] text-base font-semibold text-[#2E7D32] hover:bg-[#2E7D32]/10 sm:w-auto"
+                  className="h-[52px] w-full rounded-xl border-[#174A2E]/15 bg-white px-8 text-[15px] font-semibold text-[#174A2E] shadow-sm hover:bg-[#174A2E]/5 sm:w-auto"
                   asChild
                 >
                   <a href="tel:+8801700000000">
-                    <Phone className="mr-2 h-4 w-4" aria-hidden="true" />
+                    <Phone className="h-4 w-4" aria-hidden="true" />
                     অর্ডার করতে কল করুন
                   </a>
                 </Button>
               </div>
-              <div className="mt-6 grid grid-cols-3 gap-2 text-center text-xs font-medium text-[#174A2E] sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-4 sm:text-left sm:text-sm lg:justify-start">
-                <div className="flex flex-col items-center gap-1 rounded-lg bg-white/60 p-2 shadow-xs sm:flex-row sm:bg-transparent sm:p-0 sm:shadow-none">
-                  <Star className="h-4 w-4 fill-[#F6B800] text-[#F6B800]" aria-hidden="true" />
-                  <span>৪.৮/৫ রেটিং</span>
+
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3 lg:justify-start">
+                <div className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-2 text-xs font-semibold text-[#174A2E] shadow-sm ring-1 ring-[#174A2E]/5 sm:px-4">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#F6B800]/20">
+                    <Star className="h-3.5 w-3.5 fill-[#F6B800] text-[#F6B800]" aria-hidden="true" />
+                  </span>
+                  ৪.৮/৫ রেটিং • ৩০০+ রিভিউ
                 </div>
-                <div className="flex flex-col items-center gap-1 rounded-lg bg-white/60 p-2 shadow-xs sm:flex-row sm:bg-transparent sm:p-0 sm:shadow-none">
-                  <ShieldCheck className="h-4 w-4 text-[#2E7D32]" aria-hidden="true" />
-                  <span>১০০% ফরমালিনমুক্ত</span>
+                <div className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-2 text-xs font-semibold text-[#174A2E] shadow-sm ring-1 ring-[#174A2E]/5 sm:px-4">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#2E7D32]/10">
+                    <ShieldCheck className="h-3.5 w-3.5 text-[#2E7D32]" aria-hidden="true" />
+                  </span>
+                  ১০০% ফরমালিনমুক্ত
                 </div>
-                <div className="flex flex-col items-center gap-1 rounded-lg bg-white/60 p-2 shadow-xs sm:flex-row sm:bg-transparent sm:p-0 sm:shadow-none">
-                  <Truck className="h-4 w-4 text-[#2E7D32]" aria-hidden="true" />
-                  <span>সারা দেশে ডেলিভারি</span>
+                <div className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-2 text-xs font-semibold text-[#174A2E] shadow-sm ring-1 ring-[#174A2E]/5 sm:px-4">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#2E7D32]/10">
+                    <Truck className="h-3.5 w-3.5 text-[#2E7D32]" aria-hidden="true" />
+                  </span>
+                  সারা দেশে ডেলিভারি
                 </div>
               </div>
             </div>
-            <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-              <div className="aspect-[16/11] w-full overflow-hidden rounded-2xl bg-[#2E7D32]/10 shadow-xl sm:aspect-[4/3]">
-                <img
-                  src={HERO_IMAGE_PATH}
-                  onError={(e) => handleImageFallback(e, HERO_FALLBACK_IMAGE)}
-                  alt="বাগানে ঝুলে থাকা পাকা সোনালি আম"
-                  className="h-full w-full object-cover object-center"
-                  loading="eager"
-                />
+
+            <div className="relative mx-auto w-full max-w-[520px] lg:mx-0 lg:max-w-none">
+              <div className="relative overflow-hidden rounded-[28px] border border-white bg-white p-2 shadow-2xl shadow-[#174A2E]/10 sm:rounded-[32px] sm:p-3">
+                <div className="aspect-[4/3] w-full overflow-hidden rounded-[20px] bg-[#2E7D32]/10 sm:rounded-[24px]">
+                  <img
+                    src={HERO_IMAGE_PATH}
+                    onError={(e) => handleImageFallback(e, HERO_FALLBACK_IMAGE)}
+                    alt="বাগানে ঝুলে থাকা পাকা সোনালি আম"
+                    className="h-full w-full object-cover object-center"
+                    loading="eager"
+                  />
+                </div>
+                <div className="absolute -bottom-2 left-4 right-4 flex items-center justify-between gap-3 rounded-2xl border border-white/60 bg-white/95 px-4 py-3 shadow-xl backdrop-blur sm:left-6 sm:right-6 sm:px-5">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F6B800] text-[#174A2E] shadow-sm">
+                      <Award className="h-5 w-5" aria-hidden="true" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold leading-none text-[#174A2E]">মৌসুমি অফার</p>
+                      <p className="text-[11px] font-medium text-[#174A2E]/60">সীমিত সময়ের জন্য ১০% ছাড়</p>
+                    </div>
+                  </div>
+                  <span className="rounded-full bg-[#174A2E] px-3 py-1.5 text-xs font-bold text-white">১০% OFF</span>
+                </div>
               </div>
-              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-[#F6B800] px-3.5 py-1.5 text-xs font-bold text-[#174A2E] shadow-md whitespace-nowrap sm:px-4 sm:py-2 sm:text-sm">
-                মৌসুমি অফার — ১০% ছাড়
+              <div className="pointer-events-none absolute -right-2 -top-2 hidden rounded-2xl bg-white px-4 py-3 shadow-xl ring-1 ring-[#174A2E]/5 sm:flex sm:items-center sm:gap-3">
+                <div className="flex -space-x-2">
+                  <span className="h-7 w-7 rounded-full border-2 border-white bg-[#F6B800]" aria-hidden="true" />
+                  <span className="h-7 w-7 rounded-full border-2 border-white bg-[#2E7D32]" aria-hidden="true" />
+                  <span className="h-7 w-7 rounded-full border-2 border-white bg-[#174A2E]" aria-hidden="true" />
+                </div>
+                <p className="text-xs font-semibold leading-tight text-[#174A2E]">
+                  ১২০০+ পরিবার
+                  <br />
+                  <span className="font-normal text-[#174A2E]/60">আমঘরকে বিশ্বাস করে</span>
+                </p>
               </div>
             </div>
           </div>
@@ -430,101 +484,110 @@ function MangoLandingPage() {
       </section>
 
       {/* Varieties Section */}
-      <section id="varieties" className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-[#174A2E] sm:text-4xl">
+      <section id="varieties" className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <Badge className="rounded-full bg-[#174A2E] px-3 py-1 text-xs font-semibold tracking-wide text-white hover:bg-[#174A2E]">
+            আমাদের সংগ্রহ
+          </Badge>
+          <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-[#174A2E] sm:text-4xl">
             আমাদের আমের ভ্যারাইটি
           </h2>
-          <p className="mt-2 text-sm text-[#174A2E]/70 sm:mt-4 sm:text-base">
-            প্রতিটি আম হাতে বাছাই করা — ওজন নির্বাচন করে লাইভ মূল্য দেখুন।
+          <p className="mt-3 text-sm leading-relaxed text-[#174A2E]/65 sm:text-base">
+            প্রতিটি আম হাতে বাছাই করা — ওজন নির্বাচন করে লাইভ মূল্য দেখুন এবং এক ক্লিকে কার্টে যোগ করুন।
           </p>
         </div>
 
         {loading ? (
-          <div className="mt-8 grid gap-4 xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 sm:gap-6">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 sm:gap-6">
             {Array.from({ length: 4 }).map((_, i) => (
-              <Card key={i} className="overflow-hidden">
-                <Skeleton className="h-44 w-full" />
-                <CardHeader className="p-4">
+              <Card key={i} className="overflow-hidden rounded-2xl border-[#174A2E]/10">
+                <Skeleton className="h-48 w-full" />
+                <CardHeader className="space-y-3 p-5">
                   <Skeleton className="h-5 w-3/4" />
+                  <Skeleton className="h-4 w-1/2" />
                 </CardHeader>
-                <CardContent className="p-4 pt-0">
+                <CardContent className="space-y-3 p-5 pt-0">
                   <Skeleton className="h-4 w-full" />
-                  <Skeleton className="mt-2 h-4 w-2/3" />
+                  <Skeleton className="h-9 w-full rounded-xl" />
                 </CardContent>
-                <CardFooter className="p-4">
-                  <Skeleton className="h-10 w-full" />
+                <CardFooter className="p-5 pt-0">
+                  <Skeleton className="h-11 w-full rounded-xl" />
                 </CardFooter>
               </Card>
             ))}
           </div>
         ) : mangoVarieties.length === 0 ? (
-          <div className="mt-8 rounded-lg border border-dashed border-[#2E7D32]/30 p-8 text-center sm:p-12">
-            <p className="text-sm text-[#174A2E]/70 sm:text-base">
-              এই মুহূর্তে কোনো আম স্টকে নেই। অনুগ্রহ করে পরে আবার দেখুন।
-            </p>
+          <div className="mt-10 rounded-2xl border border-dashed border-[#2E7D32]/20 bg-white p-10 text-center sm:p-14">
+            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#FFF9E8]">
+              <Package className="h-6 w-6 text-[#174A2E]/40" aria-hidden="true" />
+            </div>
+            <p className="mt-4 text-sm font-medium text-[#174A2E] sm:text-base">এই মুহূর্তে কোনো আম স্টকে নেই</p>
+            <p className="mt-1 text-xs text-[#174A2E]/60 sm:text-sm">অনুগ্রহ করে পরে আবার দেখুন — নতুন স্টক শীঘ্রই আসছে।</p>
           </div>
         ) : (
-          <div className="mt-8 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 sm:gap-6">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 sm:gap-6">
             {mangoVarieties.map((variety) => {
               const selectedWeight = selectedWeights[variety.id] ?? 3;
               const livePrice = variety.pricePerKg * selectedWeight;
               return (
-                <Card key={variety.id} className="flex flex-col overflow-hidden border-[#2E7D32]/20 shadow-sm transition-shadow hover:shadow-md">
-                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#2E7D32]/10 sm:aspect-video">
+                <Card
+                  key={variety.id}
+                  className="group flex flex-col overflow-hidden rounded-2xl border-[#174A2E]/10 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-[#174A2E]/5"
+                >
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#FFF9E8]">
                     <img
                       src={variety.image}
                       onError={(e) => handleImageFallback(e, variety.fallbackImage)}
                       alt={`${variety.banglaName} (${variety.name}) আম`}
-                      className="h-full w-full object-cover object-center transition-transform duration-300 hover:scale-105"
+                      className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" aria-hidden="true" />
                     {variety.tag && (
-                      <Badge className="absolute left-2.5 top-2.5 bg-[#F6B800] text-xs font-semibold text-[#174A2E] hover:bg-[#F6B800]/90">
+                      <Badge className="absolute left-3 top-3 rounded-full bg-[#F6B800] px-2.5 py-1 text-[11px] font-bold tracking-wide text-[#174A2E] shadow-sm hover:bg-[#F6B800]">
                         {variety.tag}
                       </Badge>
                     )}
+                    <div className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-white/95 px-2.5 py-1 text-xs font-bold text-[#174A2E] shadow-sm backdrop-blur">
+                      <Star className="h-3.5 w-3.5 fill-[#F6B800] text-[#F6B800]" aria-hidden="true" />
+                      {variety.rating}
+                    </div>
                   </div>
-                  <CardHeader className="p-4 pb-2 sm:p-6 sm:pb-3">
-                    <CardTitle className="text-base font-bold text-[#174A2E] sm:text-lg">
-                      {variety.banglaName}{" "}
-                      <span className="text-xs font-normal text-[#174A2E]/60 sm:text-sm">
-                        ({variety.name})
+                  <CardHeader className="p-5 pb-3">
+                    <CardTitle className="flex items-baseline justify-between gap-2 text-[17px] font-extrabold leading-none text-[#174A2E]">
+                      <span>
+                        {variety.banglaName}
+                        <span className="ml-1.5 text-xs font-medium text-[#174A2E]/50">({variety.name})</span>
                       </span>
                     </CardTitle>
-                    <div className="flex items-center gap-1">
-                      <Star className="h-3.5 w-3.5 fill-[#F6B800] text-[#F6B800]" aria-hidden="true" />
-                      <span className="text-xs font-semibold text-[#174A2E] sm:text-sm">
-                        {variety.rating}
-                      </span>
-                      <span className="text-xs text-[#174A2E]/60">
-                        ({variety.reviews} রিভিউ)
-                      </span>
-                    </div>
+                    <p className="text-xs font-medium text-[#174A2E]/60">{variety.reviews} রিভিউ • {variety.unit}</p>
                   </CardHeader>
-                  <CardContent className="flex-1 p-4 pt-0 sm:p-6 sm:pt-0">
-                    <p className="text-xs text-[#174A2E]/70 sm:text-sm">{variety.description}</p>
-                    <div className="mt-3 sm:mt-4">
+                  <CardContent className="flex flex-1 flex-col p-5 pt-0">
+                    <p className="line-clamp-2 text-xs leading-relaxed text-[#174A2E]/70 sm:text-[13px]">{variety.description}</p>
+
+                    <div className="mt-4">
                       <label
                         htmlFor={`weight-${variety.id}`}
-                        className="mb-1.5 block text-xs font-semibold text-[#174A2E] sm:text-sm"
+                        className="mb-2 block text-xs font-semibold tracking-wide text-[#174A2E]"
                       >
-                        ওজন নির্বাচন করুন:
+                        ওজন নির্বাচন করুন
                       </label>
-                      <div className="flex gap-1.5 sm:gap-2" role="radiogroup" aria-label={`${variety.banglaName} ওজন`}>
+                      <div
+                        className="grid grid-cols-3 gap-2 rounded-xl bg-[#FFF9E8] p-1 ring-1 ring-[#174A2E]/5"
+                        role="radiogroup"
+                        aria-label={`${variety.banglaName} ওজন`}
+                      >
                         {weightOptions.map((weight) => (
                           <button
                             key={weight}
                             type="button"
                             role="radio"
                             aria-checked={selectedWeight === weight}
-                            onClick={() =>
-                              setSelectedWeights((prev) => ({ ...prev, [variety.id]: weight }))
-                            }
-                            className={`flex-1 rounded-md border py-2 text-xs font-semibold transition-colors min-h-[40px] flex items-center justify-center ${
+                            onClick={() => setSelectedWeights((prev) => ({ ...prev, [variety.id]: weight }))}
+                            className={`rounded-lg py-2.5 text-xs font-bold transition-all ${
                               selectedWeight === weight
-                                ? "border-[#2E7D32] bg-[#2E7D32] text-white"
-                                : "border-[#2E7D32]/30 bg-white text-[#174A2E] hover:border-[#2E7D32]"
+                                ? "bg-[#174A2E] text-white shadow-sm"
+                                : "bg-white text-[#174A2E]/70 hover:bg-white hover:text-[#174A2E] hover:shadow-sm"
                             }`}
                           >
                             {weight} কেজি
@@ -532,24 +595,28 @@ function MangoLandingPage() {
                         ))}
                       </div>
                     </div>
-                    <div className="mt-3 flex items-baseline justify-between sm:mt-4 sm:block">
-                      <p className="text-xl font-bold text-[#174A2E] sm:text-2xl">
-                        {formatPrice(livePrice)}
-                        <span className="ml-1 text-xs font-normal text-[#174A2E]/60 sm:text-sm">
-                          ({selectedWeight} কেজি)
-                        </span>
-                      </p>
-                      <p className="text-xs text-[#174A2E]/60">
-                        {formatPrice(variety.pricePerKg)} {variety.unit}
+
+                    <div className="mt-4 flex items-end justify-between gap-2 border-t border-[#174A2E]/5 pt-4">
+                      <div>
+                        <p className="text-[11px] font-semibold uppercase tracking-widest text-[#174A2E]/40">মোট মূল্য</p>
+                        <p className="text-xl font-extrabold tracking-tight text-[#174A2E]">
+                          {formatPrice(livePrice)}
+                          <span className="ml-1 text-xs font-medium text-[#174A2E]/50">/ {selectedWeight} কেজি</span>
+                        </p>
+                      </div>
+                      <p className="text-right text-xs font-medium leading-tight text-[#174A2E]/50">
+                        {formatPrice(variety.pricePerKg)}
+                        <br />
+                        {variety.unit}
                       </p>
                     </div>
                   </CardContent>
-                  <CardFooter className="p-4 pt-0 sm:p-6 sm:pt-0">
+                  <CardFooter className="p-5 pt-0">
                     <Button
-                      className="h-11 w-full bg-[#2E7D32] text-sm font-semibold text-white hover:bg-[#2E7D32]/90 sm:h-10"
+                      className="h-11 w-full rounded-xl bg-[#2E7D32] text-sm font-bold text-white shadow-md shadow-[#2E7D32]/15 transition-all hover:bg-[#256628] hover:shadow-lg"
                       onClick={() => addToCart(variety)}
                     >
-                      <ShoppingCart className="mr-1.5 h-4 w-4" aria-hidden="true" />
+                      <ShoppingCart className="h-4 w-4" aria-hidden="true" />
                       কার্টে যোগ করুন
                     </Button>
                   </CardFooter>
@@ -561,28 +628,27 @@ function MangoLandingPage() {
       </section>
 
       {/* Why Us Section */}
-      <section className="bg-[#174A2E]/5">
-        <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-2xl font-bold tracking-tight text-[#174A2E] sm:text-4xl">
-              কেন আমঘর থেকে কিনবেন?
-            </h2>
-            <p className="mt-2 text-sm text-[#174A2E]/70 sm:mt-4 sm:text-base">
-              আমরা সরাসরি বাগান থেকে আম সংগ্রহ করি, তাই মান ও দাম দুটোই সেরা।
+      <section className="bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-2xl font-extrabold tracking-tight text-[#174A2E] sm:text-4xl">কেন আমঘর থেকে কিনবেন?</h2>
+            <p className="mt-3 text-sm leading-relaxed text-[#174A2E]/65 sm:text-base">
+              আমরা সরাসরি বাগান থেকে আম সংগ্রহ করি, তাই মান ও দাম দুটোই সেরা — প্রতিটি ধাপে স্বচ্ছতা।
             </p>
           </div>
-          <div className="mt-8 grid gap-3 grid-cols-2 lg:grid-cols-4 sm:gap-6">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 sm:gap-6">
             {whyUs.map((item) => (
-              <Card key={item.title} className="border-[#2E7D32]/20 text-center p-3 sm:p-4">
-                <CardHeader className="p-2 sm:p-4">
-                  <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-[#F6B800]/20 sm:h-12 sm:w-12">
-                    <item.icon className="h-5 w-5 text-[#2E7D32] sm:h-6 sm:w-6" aria-hidden="true" />
-                  </div>
-                  <CardTitle className="mt-2 text-sm font-bold text-[#174A2E] sm:mt-4 sm:text-lg">{item.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="p-2 pt-0 sm:p-4 sm:pt-0">
-                  <p className="text-xs text-[#174A2E]/70 sm:text-sm">{item.description}</p>
-                </CardContent>
+              <Card
+                key={item.title}
+                className="rounded-2xl border-[#174A2E]/5 bg-[#FFF9E8]/60 p-6 text-left shadow-none transition-colors hover:bg-white hover:shadow-md sm:text-center"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white shadow-sm ring-1 ring-[#174A2E]/5 sm:mx-auto">
+                  <item.icon className="h-6 w-6 text-[#2E7D32]" aria-hidden="true" />
+                </div>
+                <CardTitle className="mt-4 text-[15px] font-extrabold leading-tight text-[#174A2E] sm:text-base">
+                  {item.title}
+                </CardTitle>
+                <p className="mt-2 text-xs leading-relaxed text-[#174A2E]/65 sm:text-sm">{item.description}</p>
               </Card>
             ))}
           </div>
@@ -590,57 +656,70 @@ function MangoLandingPage() {
       </section>
 
       {/* Quality Control Section */}
-      <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
-        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
           <div>
-            <h2 className="text-2xl font-bold tracking-tight text-[#174A2E] sm:text-4xl">
-              আমাদের কোয়ালিটি কন্ট্রোল
+            <Badge className="rounded-full bg-[#F6B800]/20 px-3 py-1 text-xs font-bold text-[#174A2E] hover:bg-[#F6B800]/20">
+              কোয়ালিটি কন্ট্রোল
+            </Badge>
+            <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-[#174A2E] sm:text-4xl">
+              প্রতিটি আমে নিখুঁত মানের নিশ্চয়তা
             </h2>
-            <p className="mt-2 text-sm text-[#174A2E]/70 sm:mt-4 sm:text-base">
-              প্রতিটি আম আপনার কাছে পৌঁছানোর আগে কঠোর মান যাচাই প্রক্রিয়ার মধ্য দিয়ে যায়।
+            <p className="mt-3 text-sm leading-relaxed text-[#174A2E]/65 sm:text-base">
+              প্রতিটি আম আপনার কাছে পৌঁছানোর আগে কঠোর মান যাচাই প্রক্রিয়ার মধ্য দিয়ে যায় — বাগান থেকে প্যাকেজিং পর্যন্ত।
             </p>
-            <ul className="mt-6 space-y-3 sm:mt-8 sm:space-y-4">
+            <ul className="mt-8 grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-1">
               {qualityChecks.map((check) => (
-                <li key={check} className="flex items-start gap-2.5">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#2E7D32] sm:h-6 sm:w-6">
-                    <Check className="h-3.5 w-3.5 text-white sm:h-4 sm:w-4" aria-hidden="true" />
+                <li key={check} className="flex items-center gap-3 rounded-xl bg-white px-4 py-3 shadow-sm ring-1 ring-[#174A2E]/5">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#2E7D32] text-white">
+                    <Check className="h-4 w-4" aria-hidden="true" />
                   </span>
-                  <span className="text-xs font-medium text-[#174A2E] sm:text-base">{check}</span>
+                  <span className="text-sm font-semibold leading-tight text-[#174A2E]">{check}</span>
                 </li>
               ))}
             </ul>
           </div>
-          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-[#2E7D32]/10 shadow-lg sm:aspect-[4/3]">
-            <img
-              src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?q=80&w=1200&auto=format&fit=crop"
-              onError={(e) => handleImageFallback(e, QUALITY_FALLBACK_IMAGE)}
-              alt="আমের মান যাচাই করা হচ্ছে"
-              className="h-full w-full object-cover object-center"
-              loading="lazy"
-            />
+          <div className="relative">
+            <div className="overflow-hidden rounded-[28px] border border-white bg-white p-2 shadow-xl shadow-[#174A2E]/10">
+              <div className="aspect-[4/3] w-full overflow-hidden rounded-[20px] bg-[#2E7D32]/10">
+                <img
+                  src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?q=80&w=1200&auto=format&fit=crop"
+                  onError={(e) => handleImageFallback(e, QUALITY_FALLBACK_IMAGE)}
+                  alt="আমের মান যাচাই করা হচ্ছে"
+                  className="h-full w-full object-cover object-center"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div className="absolute -bottom-4 -left-2 flex items-center gap-3 rounded-2xl bg-[#174A2E] px-5 py-4 text-white shadow-xl sm:-left-4">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F6B800] text-[#174A2E]">
+                <ShieldCheck className="h-5 w-5" aria-hidden="true" />
+              </div>
+              <div>
+                <p className="text-sm font-bold leading-none">১০০% ফরমালিনমুক্ত</p>
+                <p className="text-xs text-white/70">ল্যাব টেস্টেড ও হাতে বাছাই</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* How It Works Section */}
       <section className="bg-[#174A2E]">
-        <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-2xl font-bold tracking-tight text-white sm:text-4xl">
-              কীভাবে অর্ডার করবেন?
-            </h2>
-            <p className="mt-2 text-sm text-white/80 sm:mt-4 sm:text-base">
-              মাত্র তিনটি সহজ ধাপে আপনার পছন্দের আম অর্ডার করুন।
-            </p>
+        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-2xl font-extrabold tracking-tight text-white sm:text-4xl">কীভাবে অর্ডার করবেন?</h2>
+            <p className="mt-3 text-sm text-white/70 sm:text-base">মাত্র তিনটি সহজ ধাপে আপনার পছন্দের আম অর্ডার করুন।</p>
           </div>
-          <div className="mt-8 grid gap-4 sm:grid-cols-3 sm:gap-6">
+          <div className="relative mt-10 grid gap-4 sm:grid-cols-3 sm:gap-6">
+            <div className="absolute left-1/2 top-6 hidden h-0.5 w-2/3 -translate-x-1/2 bg-white/10 sm:block" aria-hidden="true" />
             {howItWorks.map((item) => (
-              <div key={item.step} className="rounded-xl bg-white/10 p-4 text-center sm:p-6">
-                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-[#F6B800] text-lg font-bold text-[#174A2E] sm:h-12 sm:w-12 sm:text-xl">
+              <div key={item.step} className="relative rounded-2xl bg-white/[0.07] p-6 text-center ring-1 ring-white/10 backdrop-blur">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#F6B800] text-lg font-extrabold text-[#174A2E] shadow-md">
                   {item.step}
                 </div>
-                <h3 className="mt-3 text-base font-semibold text-white sm:mt-4 sm:text-lg">{item.title}</h3>
-                <p className="mt-1 text-xs text-white/80 sm:mt-2 sm:text-sm">{item.description}</p>
+                <h3 className="mt-4 text-base font-bold text-white sm:text-lg">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/70">{item.description}</p>
               </div>
             ))}
           </div>
@@ -648,41 +727,39 @@ function MangoLandingPage() {
       </section>
 
       {/* Order Form Section */}
-      <section id="order" className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
-        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
+      <section id="order" className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12">
           <div>
-            <h2 className="text-2xl font-bold tracking-tight text-[#174A2E] sm:text-4xl">
-              অর্ডার করতে ফর্ম পূরণ করুন
-            </h2>
-            <p className="mt-2 text-sm text-[#174A2E]/70 sm:mt-4 sm:text-base">
-              ফর্ম পূরণ করলে আমাদের প্রতিনিধি শীঘ্রই আপনার সাথে যোগাযোগ করবেন।
-              পণ্য হাতে পেয়ে টাকা দিন — কোনো অগ্রিম পেমেন্ট নেই।
+            <h2 className="text-2xl font-extrabold tracking-tight text-[#174A2E] sm:text-4xl">অর্ডার করতে ফর্ম পূরণ করুন</h2>
+            <p className="mt-3 text-sm leading-relaxed text-[#174A2E]/65 sm:text-base">
+              ফর্ম পূরণ করলে আমাদের প্রতিনিধি শীঘ্রই আপনার সাথে যোগাযোগ করবেন। পণ্য হাতে পেয়ে টাকা দিন — কোনো অগ্রিম পেমেন্ট নেই।
             </p>
-            <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-8 sm:block sm:space-y-4">
+            <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-1">
               {deliveryInfo.map((item) => (
-                <div key={item.title} className="flex flex-col items-start gap-2 rounded-lg bg-[#174A2E]/5 p-3 sm:flex-row sm:bg-transparent sm:p-0">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F6B800]/20 sm:h-10 sm:w-10">
-                    <item.icon className="h-4 w-4 text-[#2E7D32] sm:h-5 sm:w-5" aria-hidden="true" />
+                <div
+                  key={item.title}
+                  className="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-[#174A2E]/5"
+                >
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#FFF9E8] ring-1 ring-[#174A2E]/5">
+                    <item.icon className="h-5 w-5 text-[#2E7D32]" aria-hidden="true" />
                   </span>
                   <div>
-                    <h3 className="text-xs font-bold text-[#174A2E] sm:text-base">{item.title}</h3>
-                    <p className="text-[11px] text-[#174A2E]/70 sm:text-sm">{item.description}</p>
+                    <h3 className="text-sm font-bold text-[#174A2E]">{item.title}</h3>
+                    <p className="text-xs text-[#174A2E]/60 sm:text-sm">{item.description}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-          <Card className="border-[#2E7D32]/20 shadow-md">
-            <CardHeader className="p-4 sm:p-6">
-              <CardTitle className="text-lg font-bold text-[#174A2E] sm:text-xl">অর্ডার ফর্ম</CardTitle>
+          <Card className="rounded-[24px] border-[#174A2E]/10 bg-white shadow-xl shadow-[#174A2E]/5">
+            <CardHeader className="p-6 pb-4 sm:p-8 sm:pb-6">
+              <CardTitle className="text-xl font-extrabold tracking-tight text-[#174A2E]">অর্ডার ফর্ম</CardTitle>
+              <p className="text-xs text-[#174A2E]/60 sm:text-sm">সব * চিহ্নিত ঘর পূরণ করা বাধ্যতামূলক</p>
             </CardHeader>
-            <CardContent className="p-4 pt-0 sm:p-6 sm:pt-0">
-              <form onSubmit={handleFormSubmit} className="space-y-3.5 sm:space-y-4" noValidate>
+            <CardContent className="p-6 pt-0 sm:p-8 sm:pt-0">
+              <form onSubmit={handleFormSubmit} className="space-y-4" noValidate>
                 <div>
-                  <label
-                    htmlFor="name"
-                    className="mb-1.5 block text-xs font-medium text-[#174A2E] sm:text-sm"
-                  >
+                  <label htmlFor="name" className="mb-2 block text-xs font-semibold tracking-wide text-[#174A2E] sm:text-sm">
                     আপনার নাম *
                   </label>
                   <input
@@ -690,24 +767,21 @@ function MangoLandingPage() {
                     type="text"
                     value={formData.name}
                     onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
-                    className={`h-11 w-full rounded-md border px-3 py-2 text-base text-[#174A2E] focus:outline-none focus:ring-2 focus:ring-[#2E7D32] sm:h-10 sm:text-sm ${
-                      formErrors.name ? "border-red-500" : "border-[#2E7D32]/30"
+                    className={`h-12 w-full rounded-xl border bg-white px-4 text-sm text-[#174A2E] placeholder:text-[#174A2E]/40 focus:outline-none focus:ring-2 focus:ring-[#2E7D32]/20 ${
+                      formErrors.name ? "border-red-400 focus:border-red-400" : "border-[#174A2E]/10 focus:border-[#2E7D32]/30"
                     }`}
                     placeholder="আপনার নাম লিখুন"
                     aria-invalid={!!formErrors.name}
                     aria-describedby={formErrors.name ? "name-error" : undefined}
                   />
                   {formErrors.name && (
-                    <p id="name-error" className="mt-1 text-xs text-red-500">
+                    <p id="name-error" className="mt-1.5 text-xs font-medium text-red-500">
                       {formErrors.name}
                     </p>
                   )}
                 </div>
                 <div>
-                  <label
-                    htmlFor="phone"
-                    className="mb-1.5 block text-xs font-medium text-[#174A2E] sm:text-sm"
-                  >
+                  <label htmlFor="phone" className="mb-2 block text-xs font-semibold tracking-wide text-[#174A2E] sm:text-sm">
                     মোবাইল নম্বর *
                   </label>
                   <input
@@ -715,32 +789,29 @@ function MangoLandingPage() {
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
-                    className={`h-11 w-full rounded-md border px-3 py-2 text-base text-[#174A2E] focus:outline-none focus:ring-2 focus:ring-[#2E7D32] sm:h-10 sm:text-sm ${
-                      formErrors.phone ? "border-red-500" : "border-[#2E7D32]/30"
+                    className={`h-12 w-full rounded-xl border bg-white px-4 text-sm text-[#174A2E] placeholder:text-[#174A2E]/40 focus:outline-none focus:ring-2 focus:ring-[#2E7D32]/20 ${
+                      formErrors.phone ? "border-red-400 focus:border-red-400" : "border-[#174A2E]/10 focus:border-[#2E7D32]/30"
                     }`}
                     placeholder="01XXXXXXXXX"
                     aria-invalid={!!formErrors.phone}
                     aria-describedby={formErrors.phone ? "phone-error" : undefined}
                   />
                   {formErrors.phone && (
-                    <p id="phone-error" className="mt-1 text-xs text-red-500">
+                    <p id="phone-error" className="mt-1.5 text-xs font-medium text-red-500">
                       {formErrors.phone}
                     </p>
                   )}
                 </div>
                 <div>
-                  <label
-                    htmlFor="address"
-                    className="mb-1.5 block text-xs font-medium text-[#174A2E] sm:text-sm"
-                  >
+                  <label htmlFor="address" className="mb-2 block text-xs font-semibold tracking-wide text-[#174A2E] sm:text-sm">
                     ডেলিভারির ঠিকানা *
                   </label>
                   <textarea
                     id="address"
                     value={formData.address}
                     onChange={(e) => setFormData((prev) => ({ ...prev, address: e.target.value }))}
-                    className={`w-full rounded-md border p-3 text-base text-[#174A2E] focus:outline-none focus:ring-2 focus:ring-[#2E7D32] sm:text-sm ${
-                      formErrors.address ? "border-red-500" : "border-[#2E7D32]/30"
+                    className={`min-h-[96px] w-full rounded-xl border bg-white p-4 text-sm text-[#174A2E] placeholder:text-[#174A2E]/40 focus:outline-none focus:ring-2 focus:ring-[#2E7D32]/20 ${
+                      formErrors.address ? "border-red-400 focus:border-red-400" : "border-[#174A2E]/10 focus:border-[#2E7D32]/30"
                     }`}
                     placeholder="বাসা/রোড/এলাকা/জেলা"
                     rows={3}
@@ -748,25 +819,22 @@ function MangoLandingPage() {
                     aria-describedby={formErrors.address ? "address-error" : undefined}
                   />
                   {formErrors.address && (
-                    <p id="address-error" className="mt-1 text-xs text-red-500">
+                    <p id="address-error" className="mt-1.5 text-xs font-medium text-red-500">
                       {formErrors.address}
                     </p>
                   )}
                 </div>
-                <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-4">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
-                    <label
-                      htmlFor="variety"
-                      className="mb-1.5 block text-xs font-medium text-[#174A2E] sm:text-sm"
-                    >
+                    <label htmlFor="variety" className="mb-2 block text-xs font-semibold tracking-wide text-[#174A2E] sm:text-sm">
                       আমের ভ্যারাইটি *
                     </label>
                     <select
                       id="variety"
                       value={formData.variety}
                       onChange={(e) => setFormData((prev) => ({ ...prev, variety: e.target.value }))}
-                      className={`h-11 w-full rounded-md border px-3 py-2 text-base text-[#174A2E] focus:outline-none focus:ring-2 focus:ring-[#2E7D32] sm:h-10 sm:text-sm ${
-                        formErrors.variety ? "border-red-500" : "border-[#2E7D32]/30"
+                      className={`h-12 w-full rounded-xl border bg-white px-4 text-sm text-[#174A2E] focus:outline-none focus:ring-2 focus:ring-[#2E7D32]/20 ${
+                        formErrors.variety ? "border-red-400 focus:border-red-400" : "border-[#174A2E]/10 focus:border-[#2E7D32]/30"
                       }`}
                       aria-invalid={!!formErrors.variety}
                       aria-describedby={formErrors.variety ? "variety-error" : undefined}
@@ -779,25 +847,20 @@ function MangoLandingPage() {
                       ))}
                     </select>
                     {formErrors.variety && (
-                      <p id="variety-error" className="mt-1 text-xs text-red-500">
+                      <p id="variety-error" className="mt-1.5 text-xs font-medium text-red-500">
                         {formErrors.variety}
                       </p>
                     )}
                   </div>
                   <div>
-                    <label
-                      htmlFor="weight"
-                      className="mb-1.5 block text-xs font-medium text-[#174A2E] sm:text-sm"
-                    >
+                    <label htmlFor="weight" className="mb-2 block text-xs font-semibold tracking-wide text-[#174A2E] sm:text-sm">
                       ওজন
                     </label>
                     <select
                       id="weight"
                       value={formData.weight}
-                      onChange={(e) =>
-                        setFormData((prev) => ({ ...prev, weight: Number(e.target.value) }))
-                      }
-                      className="h-11 w-full rounded-md border border-[#2E7D32]/30 px-3 py-2 text-base text-[#174A2E] focus:outline-none focus:ring-2 focus:ring-[#2E7D32] sm:h-10 sm:text-sm"
+                      onChange={(e) => setFormData((prev) => ({ ...prev, weight: Number(e.target.value) }))}
+                      className="h-12 w-full rounded-xl border border-[#174A2E]/10 bg-white px-4 text-sm text-[#174A2E] focus:border-[#2E7D32]/30 focus:outline-none focus:ring-2 focus:ring-[#2E7D32]/20"
                     >
                       {weightOptions.map((weight) => (
                         <option key={weight} value={weight}>
@@ -809,13 +872,13 @@ function MangoLandingPage() {
                 </div>
                 <Button
                   type="submit"
-                  className="h-12 w-full bg-[#2E7D32] text-base font-semibold text-white hover:bg-[#2E7D32]/90"
+                  className="h-12 w-full rounded-xl bg-[#2E7D32] text-sm font-bold tracking-wide text-white shadow-lg shadow-[#2E7D32]/20 hover:bg-[#256628]"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "অর্ডার প্রক্রিয়া হচ্ছে..." : "অর্ডার নিশ্চিত করুন"}
                 </Button>
-                <p className="text-center text-xs text-[#174A2E]/70">
-                  <ShieldCheck className="mr-1 inline h-4 w-4 text-[#2E7D32]" aria-hidden="true" />
+                <p className="flex items-center justify-center gap-1.5 text-center text-xs font-medium text-[#174A2E]/60">
+                  <ShieldCheck className="h-4 w-4 text-[#2E7D32]" aria-hidden="true" />
                   ক্যাশ অন ডেলিভারি — পণ্য হাতে পেয়ে টাকা দিন
                 </p>
               </form>
@@ -825,40 +888,40 @@ function MangoLandingPage() {
       </section>
 
       {/* Reviews Section */}
-      <section className="bg-[#174A2E]/5">
-        <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-2xl font-bold tracking-tight text-[#174A2E] sm:text-4xl">
-              গ্রাহকদের মতামত
-            </h2>
-            <p className="mt-2 text-sm text-[#174A2E]/70 sm:mt-4 sm:text-base">
-              আমাদের গ্রাহকরা যা বলছেন — তাদের সন্তুষ্টিই আমাদের সেরা অর্জন।
-            </p>
+      <section className="bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <h2 className="text-2xl font-extrabold tracking-tight text-[#174A2E] sm:text-4xl">গ্রাহকদের মতামত</h2>
+              <p className="mt-2 max-w-xl text-sm leading-relaxed text-[#174A2E]/60 sm:text-base">
+                আমাদের গ্রাহকরা যা বলছেন — তাদের সন্তুষ্টিই আমাদের সেরা অর্জন।
+              </p>
+            </div>
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#FFF9E8] px-4 py-2 text-xs font-bold text-[#174A2E] ring-1 ring-[#174A2E]/5">
+              <Star className="h-4 w-4 fill-[#F6B800] text-[#F6B800]" aria-hidden="true" />
+              ৪.৮/৫ গড় রেটিং
+            </div>
           </div>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
             {reviews.map((review) => (
-              <Card key={review.name} className="border-[#2E7D32]/20 shadow-xs">
-                <CardHeader className="p-4 sm:p-6">
+              <Card key={review.name} className="rounded-2xl border-[#174A2E]/5 bg-[#FFF9E8]/40 shadow-none">
+                <CardHeader className="p-6 pb-3">
                   <div className="flex items-center gap-1">
                     {Array.from({ length: 5 }).map((_, i) => (
                       <Star
                         key={i}
-                        className={`h-3.5 w-3.5 ${
-                          i < review.rating
-                            ? "fill-[#F6B800] text-[#F6B800]"
-                            : "text-[#174A2E]/20"
-                        }`}
+                        className={`h-4 w-4 ${i < review.rating ? "fill-[#F6B800] text-[#F6B800]" : "text-[#174A2E]/15"}`}
                         aria-hidden="true"
                       />
                     ))}
                   </div>
-                  <CardTitle className="text-base font-bold text-[#174A2E]">{review.name}</CardTitle>
-                  <p className="text-xs text-[#174A2E]/60">
+                  <CardTitle className="pt-2 text-[15px] font-extrabold text-[#174A2E]">{review.name}</CardTitle>
+                  <p className="text-xs font-medium text-[#174A2E]/50">
                     {review.location} • {review.date}
                   </p>
                 </CardHeader>
-                <CardContent className="p-4 pt-0 sm:p-6 sm:pt-0">
-                  <p className="text-xs text-[#174A2E]/80 sm:text-sm">{review.comment}</p>
+                <CardContent className="p-6 pt-0">
+                  <p className="text-sm leading-relaxed text-[#174A2E]/75">“{review.comment}”</p>
                 </CardContent>
               </Card>
             ))}
@@ -867,141 +930,172 @@ function MangoLandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
-        <div className="rounded-2xl bg-[#174A2E] px-4 py-8 text-center sm:px-12 sm:py-16">
-          <h2 className="text-2xl font-bold tracking-tight text-white sm:text-4xl">
-            আজই অর্ডার করুন
-          </h2>
-          <p className="mx-auto mt-2 max-w-2xl text-xs text-white/90 sm:mt-4 sm:text-base">
-            সীমিত স্টক — মৌসুম শেষ হওয়ার আগেই আপনার পছন্দের আম অর্ডার করে ফেলুন।
-            পণ্য হাতে পেয়ে টাকা পরিশোধ করুন।
-          </p>
-          <div className="mt-6 flex flex-col justify-center gap-2.5 sm:mt-8 sm:flex-row sm:gap-3">
-            <Button
-              size="lg"
-              className="h-12 w-full bg-[#F6B800] text-base font-bold text-[#174A2E] hover:bg-[#F6B800]/90 sm:w-auto"
-              asChild
-            >
-              <a href="tel:+8801700000000">
-                <Phone className="mr-2 h-4 w-4" aria-hidden="true" />
-                কল করুন: ০১৭০০-০০০০০০
-              </a>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="h-12 w-full border-white/40 bg-transparent text-base font-semibold text-white hover:bg-white/10 sm:w-auto"
-              asChild
-            >
-              <a href="#order">অর্ডার ফর্মে যান</a>
-            </Button>
+      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <div className="relative overflow-hidden rounded-[28px] bg-[#174A2E] px-6 py-10 text-center shadow-xl sm:px-12 sm:py-14">
+          <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-[#F6B800]/15 blur-2xl" aria-hidden="true" />
+          <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-white/5 blur-2xl" aria-hidden="true" />
+          <div className="relative">
+            <Badge className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold tracking-wide text-[#F6B800] hover:bg-white/10">
+              সীমিত স্টক
+            </Badge>
+            <h2 className="mt-4 text-2xl font-extrabold tracking-tight text-white sm:text-4xl">আজই অর্ডার করুন</h2>
+            <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-white/75 sm:text-base">
+              মৌসুম শেষ হওয়ার আগেই আপনার পছন্দের আম অর্ডার করে ফেলুন। পণ্য হাতে পেয়ে যাচাই করে টাকা পরিশোধ করুন।
+            </p>
+            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+              <Button
+                size="lg"
+                className="h-12 rounded-xl bg-[#F6B800] px-8 text-sm font-extrabold tracking-wide text-[#174A2E] shadow-lg hover:bg-[#F6B800]/90"
+                asChild
+              >
+                <a href="tel:+8801700000000">
+                  <Phone className="h-4 w-4" aria-hidden="true" />
+                  কল করুন: ০১৭০০-০০০০০০
+                </a>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="h-12 rounded-xl border-white/20 bg-transparent px-8 text-sm font-semibold text-white hover:bg-white/10 hover:text-white"
+                asChild
+              >
+                <a href="#order">
+                  অর্ডার ফর্মে যান
+                  <ChevronRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="bg-[#174A2E] text-white">
-        <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
-          <div className="grid gap-6 grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 sm:gap-8">
-            <div className="col-span-2 sm:col-span-1">
-              <h3 className="text-lg font-bold text-[#F6B800] sm:text-xl">আমঘর</h3>
-              <p className="mt-2 text-xs leading-relaxed text-white/80 sm:mt-4 sm:text-sm">
-                সরাসরি বাগান থেকে তাজা, মিষ্টি ও রসালো আম। ফরমালিনমুক্ত, সারা দেশে হোম ডেলিভারি।
+        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="sm:col-span-2 lg:col-span-1">
+              <h3 className="text-xl font-extrabold tracking-tight text-[#F6B800]">আমঘর</h3>
+              <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/70">
+                সরাসরি বাগান থেকে তাজা, মিষ্টি ও রসালো আম। ফরমালিনমুক্ত, সারা দেশে হোম ডেলিভারি — বিশ্বাসের সাথে ২০১৮ থেকে।
               </p>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold text-[#F6B800] sm:text-base">দ্রুত লিংক</h4>
-              <ul className="mt-2 space-y-1.5 text-xs sm:mt-4 sm:space-y-2 sm:text-sm">
-                <li>
-                  <a href="#varieties" className="text-white/80 hover:text-[#F6B800]">
-                    আমের ভ্যারাইটি
-                  </a>
-                </li>
-                <li>
-                  <a href="#order" className="text-white/80 hover:text-[#F6B800]">
-                    অর্ডার করুন
-                  </a>
-                </li>
-                <li>
-                  <Link to="/" className="text-white/80 hover:text-[#F6B800]">
-                    হোমপেজ
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold text-[#F6B800] sm:text-base">যোগাযোগ</h4>
-              <ul className="mt-2 space-y-1.5 text-xs text-white/80 sm:mt-4 sm:space-y-2 sm:text-sm">
-                <li className="flex items-center gap-1.5">
-                  <Phone className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-                  ০১৭০০-০০০০০০
-                </li>
-                <li className="flex items-center gap-1.5">
-                  <MapPin className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-                  চাঁপাইনবাবগঞ্জ, বাংলাদেশ
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold text-[#F6B800] sm:text-base">সোশ্যাল মিডিয়া</h4>
-              <div className="mt-3 flex gap-2.5 sm:mt-4 sm:gap-3">
+              <div className="mt-6 flex gap-2.5">
                 <a
                   href="#"
                   aria-label="ফেসবুক"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white hover:bg-[#F6B800] hover:text-[#174A2E] transition-colors"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white ring-1 ring-white/10 transition-colors hover:bg-[#F6B800] hover:text-[#174A2E]"
                 >
                   <Facebook className="h-4 w-4" aria-hidden="true" />
                 </a>
                 <a
                   href="#"
                   aria-label="ইনস্টাগ্রাম"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white hover:bg-[#F6B800] hover:text-[#174A2E] transition-colors"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white ring-1 ring-white/10 transition-colors hover:bg-[#F6B800] hover:text-[#174A2E]"
                 >
                   <Instagram className="h-4 w-4" aria-hidden="true" />
                 </a>
                 <a
                   href="#"
                   aria-label="ইউটিউব"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white hover:bg-[#F6B800] hover:text-[#174A2E] transition-colors"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white ring-1 ring-white/10 transition-colors hover:bg-[#F6B800] hover:text-[#174A2E]"
                 >
                   <Youtube className="h-4 w-4" aria-hidden="true" />
                 </a>
               </div>
             </div>
+            <div>
+              <h4 className="text-sm font-bold tracking-wide text-white">দ্রুত লিংক</h4>
+              <ul className="mt-4 space-y-2.5 text-sm">
+                <li>
+                  <a href="#varieties" className="text-white/70 transition-colors hover:text-[#F6B800]">
+                    আমের ভ্যারাইটি
+                  </a>
+                </li>
+                <li>
+                  <a href="#order" className="text-white/70 transition-colors hover:text-[#F6B800]">
+                    অর্ডার করুন
+                  </a>
+                </li>
+                <li>
+                  <Link to="/" className="text-white/70 transition-colors hover:text-[#F6B800]">
+                    হোমপেজ
+                  </Link>
+                </li>
+                <li>
+                  <a href="#" className="text-white/70 transition-colors hover:text-[#F6B800]">
+                    আমাদের সম্পর্কে
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-sm font-bold tracking-wide text-white">যোগাযোগ</h4>
+              <ul className="mt-4 space-y-3 text-sm text-white/70">
+                <li className="flex items-center gap-2.5">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10">
+                    <Phone className="h-4 w-4 text-[#F6B800]" aria-hidden="true" />
+                  </span>
+                  ০১৭০০-০০০০০০
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10">
+                    <MapPin className="h-4 w-4 text-[#F6B800]" aria-hidden="true" />
+                  </span>
+                  চাঁপাইনবাবগঞ্জ, বাংলাদেশ
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10">
+                    <Clock className="h-4 w-4 text-[#F6B800]" aria-hidden="true" />
+                  </span>
+                  প্রতিদিন সকাল ৯টা - রাত ৯টা
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-sm font-bold tracking-wide text-white">ডেলিভারি তথ্য</h4>
+              <ul className="mt-4 space-y-2.5 text-sm text-white/70">
+                <li>ঢাকায় ২৪ ঘণ্টায় ডেলিভারি</li>
+                <li>ঢাকার বাইরে ৪৮–৭২ ঘণ্টা</li>
+                <li>ক্যাশ অন ডেলিভারি</li>
+                <li>ক্ষতিগ্রস্ত পণ্য ফেরতযোগ্য</li>
+              </ul>
+            </div>
           </div>
-          <div className="mt-8 border-t border-white/10 pt-6 text-center text-xs text-white/60 sm:text-sm">
-            © {new Date().getFullYear()} আমঘর — সর্বস্বত্ব সংরক্ষিত।
+          <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/50 sm:flex-row sm:text-sm">
+            <p>© {new Date().getFullYear()} আমঘর — সর্বস্বত্ব সংরক্ষিত।</p>
+            <p className="flex items-center gap-1.5">
+              <ShieldCheck className="h-4 w-4 text-[#F6B800]" aria-hidden="true" />
+              নিরাপদ ও বিশ্বস্ত কেনাকাটা
+            </p>
           </div>
         </div>
       </footer>
 
       {/* Sticky Mobile CTA */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-[#2E7D32]/20 bg-white/95 p-3 shadow-2xl backdrop-blur-md sm:hidden">
-        <div className="flex items-center justify-between gap-2.5">
+      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-[#174A2E]/10 bg-white/95 p-3 shadow-2xl backdrop-blur-xl sm:hidden">
+        <div className="flex items-center gap-3">
           <a
             href="tel:+8801700000000"
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-[#2E7D32]/30 bg-[#2E7D32]/10 text-[#2E7D32]"
+            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#174A2E]/10 bg-[#FFF9E8] text-[#174A2E]"
             aria-label="কল করুন"
           >
             <Phone className="h-5 w-5" aria-hidden="true" />
           </a>
-          <div className="flex-1">
-            <p className="text-[10px] font-medium text-[#174A2E]/60">কার্ট হিসাব</p>
-            <p className="text-base font-bold text-[#174A2E]">{formatPrice(totalPrice)}</p>
+          <div className="min-w-0 flex-1">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#174A2E]/40">কার্ট হিসাব</p>
+            <p className="truncate text-base font-extrabold tracking-tight text-[#174A2E]">{formatPrice(totalPrice)}</p>
           </div>
           <Button
-            className="h-11 flex-1 bg-[#2E7D32] px-4 text-sm font-bold text-white hover:bg-[#2E7D32]/90"
+            className="h-12 shrink-0 rounded-xl bg-[#2E7D32] px-5 text-sm font-bold text-white shadow-md hover:bg-[#256628]"
             asChild
           >
             <a href="#order">
               অর্ডার করুন
-              <ChevronRight className="ml-1 h-4 w-4" aria-hidden="true" />
+              <ChevronRight className="h-4 w-4" aria-hidden="true" />
             </a>
           </Button>
         </div>
       </div>
 
-      {/* Bottom padding for mobile to account for sticky CTA */}
       <div className="h-20 sm:hidden" aria-hidden="true" />
     </div>
   );
