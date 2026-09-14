@@ -54,6 +54,7 @@ type MangoVariety = {
   unit: string;
   description: string;
   image: string;
+  fallbackImage: string;
   tag?: string;
   rating: number;
   reviews: number;
@@ -68,6 +69,8 @@ const mangoVarieties: MangoVariety[] = [
     unit: "প্রতি কেজি",
     description: "চাঁপাইনবাবগঞ্জের বিখ্যাত হিমসাগর — আঁশহীন, মিষ্টি ও রসালো।",
     image: "/mangoes/himsagar.jpg",
+    fallbackImage:
+      "https://images.unsplash.com/photo-1591073113125-e46713c829ed?q=80&w=800&auto=format&fit=crop",
     tag: "বেস্ট সেলার",
     rating: 4.9,
     reviews: 128,
@@ -80,6 +83,8 @@ const mangoVarieties: MangoVariety[] = [
     unit: "প্রতি কেজি",
     description: "সুগন্ধি ও মিষ্টি ল্যাংড়া আম, পাকলে সোনালি রঙ ধারণ করে।",
     image: "/mangoes/langra.jpg",
+    fallbackImage:
+      "https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?q=80&w=800&auto=format&fit=crop",
     rating: 4.8,
     reviews: 96,
   },
@@ -91,6 +96,8 @@ const mangoVarieties: MangoVariety[] = [
     unit: "প্রতি কেজি",
     description: "গাঢ় কমলা রঙের আম্রপালি, অত্যন্ত মিষ্টি ও পুষ্টিকর।",
     image: "/mangoes/amrapali.jpg",
+    fallbackImage:
+      "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?q=80&w=800&auto=format&fit=crop",
     rating: 4.7,
     reviews: 74,
   },
@@ -102,10 +109,17 @@ const mangoVarieties: MangoVariety[] = [
     unit: "প্রতি কেজি",
     description: "বড় আকারের ফজলি আম, আঁশবিহীন ও দীর্ঘদিন সংরক্ষণযোগ্য।",
     image: "/mangoes/fazli.jpg",
+    fallbackImage:
+      "https://images.unsplash.com/photo-1553279768-865429fa0078?q=80&w=800&auto=format&fit=crop",
     rating: 4.6,
     reviews: 58,
   },
 ];
+
+const HERO_FALLBACK_IMAGE =
+  "https://images.unsplash.com/photo-1553279768-865429fa0078?q=80&w=1000&auto=format&fit=crop";
+const QUALITY_FALLBACK_IMAGE =
+  "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?q=80&w=1000&auto=format&fit=crop";
 
 const weightOptions = [3, 5, 10];
 
@@ -252,8 +266,6 @@ function MangoLandingPage() {
     return () => clearInterval(interval);
   }, []);
 
-  const totalItems = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
-
   const totalPrice = useMemo(() => {
     return Object.entries(cart).reduce((sum, [id, qty]) => {
       const variety = mangoVarieties.find((v) => v.id === id);
@@ -308,6 +320,16 @@ function MangoLandingPage() {
   };
 
   const formatPrice = (price: number) => `৳${price.toLocaleString("bn-BD")}`;
+
+  const handleImageFallback = (
+    e: React.SyntheticEvent<HTMLImageElement, Event>,
+    fallbackUrl: string,
+  ) => {
+    const target = e.currentTarget;
+    if (target.src !== fallbackUrl) {
+      target.src = fallbackUrl;
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#FFF9E8]">
@@ -388,6 +410,7 @@ function MangoLandingPage() {
             <div className="relative">
               <img
                 src="/mangoes/hero-mango.jpg"
+                onError={(e) => handleImageFallback(e, HERO_FALLBACK_IMAGE)}
                 alt="বাগানে ঝুলে থাকা পাকা সোনালি আম"
                 className="mx-auto w-full max-w-md rounded-2xl object-cover shadow-2xl"
                 loading="eager"
@@ -445,6 +468,7 @@ function MangoLandingPage() {
                   <div className="relative">
                     <img
                       src={variety.image}
+                      onError={(e) => handleImageFallback(e, variety.fallbackImage)}
                       alt={`${variety.banglaName} (${variety.name}) আম`}
                       className="h-48 w-full object-cover"
                       loading="lazy"
@@ -581,6 +605,7 @@ function MangoLandingPage() {
           <div className="relative">
             <img
               src="/mangoes/quality-check.jpg"
+              onError={(e) => handleImageFallback(e, QUALITY_FALLBACK_IMAGE)}
               alt="আমের মান যাচাই করা হচ্ছে"
               className="w-full rounded-2xl object-cover shadow-lg"
               loading="lazy"
