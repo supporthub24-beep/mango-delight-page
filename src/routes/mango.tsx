@@ -24,7 +24,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/mango")({
   head: () => ({
     meta: [
       { title: "আমঘর | তাজা আম সরাসরি বাগান থেকে" },
