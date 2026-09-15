@@ -18,6 +18,13 @@ import {
   Youtube,
   Sparkles,
   ArrowRight,
+  Quote,
+  MousePointerClick,
+  ClipboardList,
+  PackageCheck,
+  BadgeCheck,
+  Sprout,
+  HeartHandshake,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -164,16 +171,19 @@ const qualityChecks = [
 const howItWorks = [
   {
     step: "১",
+    icon: MousePointerClick,
     title: "আম বাছাই করুন",
     description: "আপনার পছন্দের ভ্যারাইটি ও ওজন নির্বাচন করুন।",
   },
   {
     step: "২",
+    icon: ClipboardList,
     title: "অর্ডার ফর্ম পূরণ করুন",
     description: "নাম, ফোন নম্বর ও ঠিকানা দিয়ে অর্ডার নিশ্চিত করুন।",
   },
   {
     step: "৩",
+    icon: PackageCheck,
     title: "ডেলিভারি নিন",
     description: "আম হাতে পেয়ে যাচাই করুন, তারপর টাকা দিন।",
   },
@@ -186,6 +196,8 @@ const reviews = [
     rating: 5,
     comment: "হিমসাগর আমের স্বাদ অসাধারণ! একদম বাগান থেকে তোলা তাজা আম পেয়েছি।",
     date: "২ দিন আগে",
+    initials: "রাউ",
+    accent: "bg-[#F6B800] text-[#174A2E]",
   },
   {
     name: "সাবিনা ইয়াসমিন",
@@ -193,6 +205,8 @@ const reviews = [
     rating: 5,
     comment: "ফরমালিনমুক্ত আমের কোনো তুলনা হয় না। বাচ্চারা খুব পছন্দ করেছে।",
     date: "৫ দিন আগে",
+    initials: "সাই",
+    accent: "bg-[#2E7D32] text-white",
   },
   {
     name: "কামরুল হাসান",
@@ -200,6 +214,8 @@ const reviews = [
     rating: 4,
     comment: "ডেলিভারি সময়মতো পেয়েছি, আমগুলো খুব মিষ্টি ছিল। আবার অর্ডার করব।",
     date: "১ সপ্তাহ আগে",
+    initials: "কাহা",
+    accent: "bg-[#174A2E] text-white",
   },
 ];
 
@@ -366,13 +382,14 @@ function MangoLandingPage() {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#F6B800]/15 via-[#FFF9E8] to-[#FFF9E8]" aria-hidden="true" />
-        <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-[#F6B800]/20 blur-3xl sm:h-96 sm:w-96" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F6B800]/20 via-[#FFF9E8] to-[#FFF9E8]" aria-hidden="true" />
+        <div className="absolute inset-x-0 top-0 h-[420px] bg-[radial-gradient(60%_60%_at_50%_0%,rgba(246,184,0,0.22),transparent_70%)]" aria-hidden="true" />
+        <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-[#F6B800]/25 blur-3xl sm:h-96 sm:w-96" aria-hidden="true" />
         <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-[#2E7D32]/10 blur-3xl" aria-hidden="true" />
-        <div className="relative mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-          <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
+        <div className="relative mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
             <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#174A2E]/10 bg-white px-3 py-1.5 shadow-sm">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#174A2E]/10 bg-white/80 px-3 py-1.5 shadow-sm backdrop-blur">
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#F6B800]">
                   <Award className="h-3.5 w-3.5 text-[#174A2E]" aria-hidden="true" />
                 </span>
@@ -382,35 +399,35 @@ function MangoLandingPage() {
                 <Sparkles className="hidden h-3.5 w-3.5 text-[#F6B800] sm:block" aria-hidden="true" />
               </div>
 
-              <h1 className="mt-5 text-balance text-[28px] font-extrabold leading-[1.05] tracking-tight text-[#174A2E] sm:mt-6 sm:text-5xl lg:text-[56px]">
+              <h1 className="mt-6 text-balance text-[34px] font-extrabold leading-[1.04] tracking-tight text-[#174A2E] sm:mt-7 sm:text-[56px] lg:text-[68px]">
                 তাজা আম,
                 <span className="relative inline-block">
                   <span className="relative z-10 px-1"> সরাসরি বাগান</span>
-                  <span className="absolute bottom-1 left-0 -z-0 h-3 w-full bg-[#F6B800]/30 sm:h-4" aria-hidden="true" />
+                  <span className="absolute bottom-1 left-0 -z-0 h-3.5 w-full rounded-full bg-gradient-to-r from-[#F6B800]/50 to-[#F6B800]/20 sm:h-5" aria-hidden="true" />
                 </span>{" "}
                 থেকে আপনার ঘরে
               </h1>
 
-              <p className="mx-auto mt-4 max-w-xl text-pretty text-sm leading-relaxed text-[#174A2E]/75 sm:mt-5 sm:text-[17px] sm:leading-7 lg:mx-0">
+              <p className="mx-auto mt-5 max-w-xl text-pretty text-[15px] leading-relaxed text-[#174A2E]/75 sm:mt-6 sm:text-lg sm:leading-8 lg:mx-0">
                 চাঁপাইনবাবগঞ্জ ও রাজশাহীর সেরা বাগান থেকে বাছাই করা মিষ্টি ও রসালো আম।
                 ফরমালিনমুক্ত, হাতে বাছাই করা — সারা দেশে হোম ডেলিভারি।
               </p>
 
-              <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:justify-center lg:justify-start">
+              <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:justify-center lg:justify-start">
                 <Button
                   size="lg"
-                  className="h-[52px] w-full rounded-xl bg-[#2E7D32] px-8 text-[15px] font-bold tracking-wide text-white shadow-lg shadow-[#2E7D32]/20 transition-all hover:bg-[#256628] hover:shadow-xl hover:shadow-[#2E7D32]/25 sm:w-auto"
+                  className="group h-[54px] w-full rounded-xl bg-[#2E7D32] px-8 text-[15px] font-bold tracking-wide text-white shadow-lg shadow-[#2E7D32]/25 transition-all hover:-translate-y-0.5 hover:bg-[#256628] hover:shadow-xl hover:shadow-[#2E7D32]/30 sm:w-auto"
                   asChild
                 >
                   <a href="#varieties">
                     আম দেখুন
-                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
                   </a>
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="h-[52px] w-full rounded-xl border-[#174A2E]/15 bg-white px-8 text-[15px] font-semibold text-[#174A2E] shadow-sm hover:bg-[#174A2E]/5 sm:w-auto"
+                  className="h-[54px] w-full rounded-xl border-[#174A2E]/15 bg-white/80 px-8 text-[15px] font-semibold text-[#174A2E] shadow-sm backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-white sm:w-auto"
                   asChild
                 >
                   <a href="tel:+8801700000000">
@@ -420,7 +437,7 @@ function MangoLandingPage() {
                 </Button>
               </div>
 
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3 lg:justify-start">
+              <div className="mt-9 flex flex-wrap items-center justify-center gap-2 sm:gap-3 lg:justify-start">
                 <div className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-2 text-xs font-semibold text-[#174A2E] shadow-sm ring-1 ring-[#174A2E]/5 sm:px-4">
                   <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#F6B800]/20">
                     <Star className="h-3.5 w-3.5 fill-[#F6B800] text-[#F6B800]" aria-hidden="true" />
@@ -443,7 +460,7 @@ function MangoLandingPage() {
             </div>
 
             <div className="relative mx-auto w-full max-w-[520px] lg:mx-0 lg:max-w-none">
-              <div className="relative overflow-hidden rounded-[28px] border border-white bg-white p-2 shadow-2xl shadow-[#174A2E]/10 sm:rounded-[32px] sm:p-3">
+              <div className="relative overflow-hidden rounded-[28px] border border-white/70 bg-white/70 p-2 shadow-2xl shadow-[#174A2E]/15 backdrop-blur-xl sm:rounded-[32px] sm:p-3">
                 <div className="aspect-[4/3] w-full overflow-hidden rounded-[20px] bg-[#2E7D32]/10 sm:rounded-[24px]">
                   <img
                     src={HERO_IMAGE_PATH}
@@ -453,7 +470,7 @@ function MangoLandingPage() {
                     loading="eager"
                   />
                 </div>
-                <div className="absolute -bottom-2 left-4 right-4 flex items-center justify-between gap-3 rounded-2xl border border-white/60 bg-white/95 px-4 py-3 shadow-xl backdrop-blur sm:left-6 sm:right-6 sm:px-5">
+                <div className="absolute -bottom-2 left-4 right-4 flex items-center justify-between gap-3 rounded-2xl border border-white/60 bg-white/80 px-4 py-3 shadow-xl backdrop-blur-xl sm:left-6 sm:right-6 sm:px-5">
                   <div className="flex items-center gap-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F6B800] text-[#174A2E] shadow-sm">
                       <Award className="h-5 w-5" aria-hidden="true" />
@@ -466,7 +483,7 @@ function MangoLandingPage() {
                   <span className="rounded-full bg-[#174A2E] px-3 py-1.5 text-xs font-bold text-white">১০% OFF</span>
                 </div>
               </div>
-              <div className="pointer-events-none absolute -right-2 -top-2 hidden rounded-2xl bg-white px-4 py-3 shadow-xl ring-1 ring-[#174A2E]/5 sm:flex sm:items-center sm:gap-3">
+              <div className="pointer-events-none absolute -right-2 -top-2 hidden rounded-2xl border border-white/60 bg-white/80 px-4 py-3 shadow-xl ring-1 ring-[#174A2E]/5 backdrop-blur-xl sm:flex sm:items-center sm:gap-3">
                 <div className="flex -space-x-2">
                   <span className="h-7 w-7 rounded-full border-2 border-white bg-[#F6B800]" aria-hidden="true" />
                   <span className="h-7 w-7 rounded-full border-2 border-white bg-[#2E7D32]" aria-hidden="true" />
@@ -532,7 +549,7 @@ function MangoLandingPage() {
               return (
                 <Card
                   key={variety.id}
-                  className="group flex flex-col overflow-hidden rounded-2xl border-[#174A2E]/10 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-[#174A2E]/5"
+                  className="group flex flex-col overflow-hidden rounded-2xl border-white/60 bg-white/70 shadow-md shadow-[#174A2E]/5 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1.5 hover:border-[#F6B800]/40 hover:shadow-2xl hover:shadow-[#174A2E]/10"
                 >
                   <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#FFF9E8]">
                     <img
@@ -544,11 +561,11 @@ function MangoLandingPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" aria-hidden="true" />
                     {variety.tag && (
-                      <Badge className="absolute left-3 top-3 rounded-full bg-[#F6B800] px-2.5 py-1 text-[11px] font-bold tracking-wide text-[#174A2E] shadow-sm hover:bg-[#F6B800]">
+                      <Badge className="absolute left-3 top-3 rounded-full bg-[#F6B800] px-2.5 py-1 text-[11px] font-bold tracking-wide text-[#174A2E] shadow-md hover:bg-[#F6B800]">
                         {variety.tag}
                       </Badge>
                     )}
-                    <div className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-white/95 px-2.5 py-1 text-xs font-bold text-[#174A2E] shadow-sm backdrop-blur">
+                    <div className="absolute right-3 top-3 flex items-center gap-1 rounded-full border border-white/60 bg-white/80 px-2.5 py-1 text-xs font-bold text-[#174A2E] shadow-sm backdrop-blur-xl">
                       <Star className="h-3.5 w-3.5 fill-[#F6B800] text-[#F6B800]" aria-hidden="true" />
                       {variety.rating}
                     </div>
@@ -573,7 +590,7 @@ function MangoLandingPage() {
                         ওজন নির্বাচন করুন
                       </label>
                       <div
-                        className="grid grid-cols-3 gap-2 rounded-xl bg-[#FFF9E8] p-1 ring-1 ring-[#174A2E]/5"
+                        className="grid grid-cols-3 gap-2 rounded-xl bg-[#FFF9E8]/80 p-1 ring-1 ring-[#174A2E]/5"
                         role="radiogroup"
                         aria-label={`${variety.banglaName} ওজন`}
                       >
@@ -613,7 +630,7 @@ function MangoLandingPage() {
                   </CardContent>
                   <CardFooter className="p-5 pt-0">
                     <Button
-                      className="h-11 w-full rounded-xl bg-[#2E7D32] text-sm font-bold text-white shadow-md shadow-[#2E7D32]/15 transition-all hover:bg-[#256628] hover:shadow-lg"
+                      className="h-11 w-full rounded-xl bg-[#2E7D32] text-sm font-bold text-white shadow-md shadow-[#2E7D32]/15 transition-all hover:-translate-y-0.5 hover:bg-[#256628] hover:shadow-lg"
                       onClick={() => addToCart(variety)}
                     >
                       <ShoppingCart className="h-4 w-4" aria-hidden="true" />
@@ -640,10 +657,10 @@ function MangoLandingPage() {
             {whyUs.map((item) => (
               <Card
                 key={item.title}
-                className="rounded-2xl border-[#174A2E]/5 bg-[#FFF9E8]/60 p-6 text-left shadow-none transition-colors hover:bg-white hover:shadow-md sm:text-center"
+                className="group rounded-2xl border-[#174A2E]/5 bg-[#FFF9E8]/60 p-6 text-left shadow-none transition-all duration-300 hover:-translate-y-1 hover:border-[#F6B800]/30 hover:bg-white hover:shadow-xl hover:shadow-[#174A2E]/5 sm:text-center"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white shadow-sm ring-1 ring-[#174A2E]/5 sm:mx-auto">
-                  <item.icon className="h-6 w-6 text-[#2E7D32]" aria-hidden="true" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white shadow-sm ring-1 ring-[#174A2E]/5 transition-transform duration-300 group-hover:scale-110 group-hover:ring-[#F6B800]/40 sm:mx-auto">
+                  <item.icon className="h-6 w-6 text-[#2E7D32] transition-colors duration-300 group-hover:text-[#174A2E]" aria-hidden="true" />
                 </div>
                 <CardTitle className="mt-4 text-[15px] font-extrabold leading-tight text-[#174A2E] sm:text-base">
                   {item.title}
@@ -700,6 +717,26 @@ function MangoLandingPage() {
                 <p className="text-xs text-white/70">ল্যাব টেস্টেড ও হাতে বাছাই</p>
               </div>
             </div>
+            <div className="absolute -right-2 top-6 hidden items-center gap-2 rounded-2xl border border-white/60 bg-white/80 px-4 py-3 shadow-xl backdrop-blur-xl lg:flex">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#2E7D32]/10">
+                <Sprout className="h-4.5 w-4.5 text-[#2E7D32]" aria-hidden="true" />
+              </span>
+              <p className="text-xs font-semibold leading-tight text-[#174A2E]">
+                নিজস্ব বাগান
+                <br />
+                <span className="font-normal text-[#174A2E]/60">চাঁপাইনবাবগঞ্জ ও রাজশাহী</span>
+              </p>
+            </div>
+            <div className="absolute -left-3 bottom-24 hidden items-center gap-2 rounded-2xl border border-white/60 bg-white/80 px-4 py-3 shadow-xl backdrop-blur-xl lg:flex">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#F6B800]/20">
+                <HeartHandshake className="h-4.5 w-4.5 text-[#174A2E]" aria-hidden="true" />
+              </span>
+              <p className="text-xs font-semibold leading-tight text-[#174A2E]">
+                ১২০০+ সন্তুষ্ট গ্রাহক
+                <br />
+                <span className="font-normal text-[#174A2E]/60">সারা দেশে ডেলিভারি</span>
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -712,14 +749,21 @@ function MangoLandingPage() {
             <p className="mt-3 text-sm text-white/70 sm:text-base">মাত্র তিনটি সহজ ধাপে আপনার পছন্দের আম অর্ডার করুন।</p>
           </div>
           <div className="relative mt-10 grid gap-4 sm:grid-cols-3 sm:gap-6">
-            <div className="absolute left-1/2 top-6 hidden h-0.5 w-2/3 -translate-x-1/2 bg-white/10 sm:block" aria-hidden="true" />
+            <div className="absolute left-1/2 top-8 hidden h-0.5 w-2/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#F6B800]/40 to-transparent sm:block" aria-hidden="true" />
             {howItWorks.map((item) => (
-              <div key={item.step} className="relative rounded-2xl bg-white/[0.07] p-6 text-center ring-1 ring-white/10 backdrop-blur">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#F6B800] text-lg font-extrabold text-[#174A2E] shadow-md">
-                  {item.step}
+              <div
+                key={item.step}
+                className="group relative overflow-hidden rounded-2xl bg-gradient-to-b from-white/[0.12] to-white/[0.04] p-6 text-center ring-1 ring-white/10 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:ring-[#F6B800]/40"
+              >
+                <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-[#F6B800]/10 blur-2xl transition-opacity duration-300 group-hover:opacity-100 sm:opacity-0" aria-hidden="true" />
+                <div className="relative mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F6B800] text-[#174A2E] shadow-lg shadow-[#F6B800]/20 transition-transform duration-300 group-hover:scale-110">
+                  <item.icon className="h-6 w-6" aria-hidden="true" />
+                  <span className="absolute -right-1.5 -top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-[#174A2E] text-[11px] font-extrabold text-[#F6B800] ring-2 ring-[#174A2E]">
+                    {item.step}
+                  </span>
                 </div>
-                <h3 className="mt-4 text-base font-bold text-white sm:text-lg">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/70">{item.description}</p>
+                <h3 className="relative mt-5 text-base font-bold text-white sm:text-lg">{item.title}</h3>
+                <p className="relative mt-2 text-sm leading-relaxed text-white/70">{item.description}</p>
               </div>
             ))}
           </div>
@@ -899,14 +943,21 @@ function MangoLandingPage() {
             </div>
             <div className="inline-flex items-center gap-2 rounded-full bg-[#FFF9E8] px-4 py-2 text-xs font-bold text-[#174A2E] ring-1 ring-[#174A2E]/5">
               <Star className="h-4 w-4 fill-[#F6B800] text-[#F6B800]" aria-hidden="true" />
-              ৪.৮/৫ গড় রেটিং
+              ৪.৮/৫ গড় রেটিং • ৩০০+ রিভিউ
             </div>
           </div>
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
             {reviews.map((review) => (
-              <Card key={review.name} className="rounded-2xl border-[#174A2E]/5 bg-[#FFF9E8]/40 shadow-none">
+              <Card
+                key={review.name}
+                className="group relative flex flex-col rounded-2xl border-[#174A2E]/5 bg-[#FFF9E8]/40 shadow-none transition-all duration-300 hover:-translate-y-1 hover:border-[#F6B800]/30 hover:bg-white hover:shadow-xl hover:shadow-[#174A2E]/5"
+              >
+                <Quote
+                  className="absolute right-5 top-5 h-8 w-8 text-[#F6B800]/25 transition-colors duration-300 group-hover:text-[#F6B800]/50"
+                  aria-hidden="true"
+                />
                 <CardHeader className="p-6 pb-3">
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-1" aria-label={`${review.rating} স্টার রেটিং`}>
                     {Array.from({ length: 5 }).map((_, i) => (
                       <Star
                         key={i}
@@ -915,13 +966,24 @@ function MangoLandingPage() {
                       />
                     ))}
                   </div>
-                  <CardTitle className="pt-2 text-[15px] font-extrabold text-[#174A2E]">{review.name}</CardTitle>
-                  <p className="text-xs font-medium text-[#174A2E]/50">
-                    {review.location} • {review.date}
-                  </p>
                 </CardHeader>
-                <CardContent className="p-6 pt-0">
-                  <p className="text-sm leading-relaxed text-[#174A2E]/75">“{review.comment}”</p>
+                <CardContent className="flex flex-1 flex-col p-6 pt-0">
+                  <p className="flex-1 text-sm leading-relaxed text-[#174A2E]/75">“{review.comment}”</p>
+                  <div className="mt-5 flex items-center gap-3 border-t border-[#174A2E]/5 pt-4">
+                    <span
+                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xs font-extrabold shadow-sm ${review.accent}`}
+                      aria-hidden="true"
+                    >
+                      {review.initials}
+                    </span>
+                    <div className="min-w-0">
+                      <p className="truncate text-sm font-extrabold text-[#174A2E]">{review.name}</p>
+                      <p className="truncate text-xs font-medium text-[#174A2E]/50">
+                        {review.location} • {review.date}
+                      </p>
+                    </div>
+                    <BadgeCheck className="ml-auto h-5 w-5 shrink-0 text-[#2E7D32]" aria-label="যাচাইকৃত ক্রেতা" />
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -980,22 +1042,28 @@ function MangoLandingPage() {
               </p>
               <div className="mt-6 flex gap-2.5">
                 <a
-                  href="#"
-                  aria-label="ফেসবুক"
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="ফেসবুকে আমঘর"
                   className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white ring-1 ring-white/10 transition-colors hover:bg-[#F6B800] hover:text-[#174A2E]"
                 >
                   <Facebook className="h-4 w-4" aria-hidden="true" />
                 </a>
                 <a
-                  href="#"
-                  aria-label="ইনস্টাগ্রাম"
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="ইনস্টাগ্রামে আমঘর"
                   className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white ring-1 ring-white/10 transition-colors hover:bg-[#F6B800] hover:text-[#174A2E]"
                 >
                   <Instagram className="h-4 w-4" aria-hidden="true" />
                 </a>
                 <a
-                  href="#"
-                  aria-label="ইউটিউব"
+                  href="https://www.youtube.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="ইউটিউবে আমঘর"
                   className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white ring-1 ring-white/10 transition-colors hover:bg-[#F6B800] hover:text-[#174A2E]"
                 >
                   <Youtube className="h-4 w-4" aria-hidden="true" />
@@ -1021,9 +1089,9 @@ function MangoLandingPage() {
                   </Link>
                 </li>
                 <li>
-                  <a href="#" className="text-white/70 transition-colors hover:text-[#F6B800]">
+                  <Link to="/mango" className="text-white/70 transition-colors hover:text-[#F6B800]">
                     আমাদের সম্পর্কে
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
