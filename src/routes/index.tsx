@@ -69,7 +69,7 @@ type MangoVariety = {
   reviews: number;
 };
 
-const HERO_IMAGE_PATH = "/generated/fresh-mangoes-hero-1789372889512.png";
+const HERO_IMAGE_PATH = "/generated/85faab0c-736-mango-hero.png";
 const HERO_FALLBACK_IMAGE =
   "https://images.unsplash.com/photo-1553279768-865429fa0078?q=80&w=1200&auto=format&fit=crop";
 const QUALITY_FALLBACK_IMAGE =
