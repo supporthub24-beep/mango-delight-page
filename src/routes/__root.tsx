@@ -13,6 +13,8 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
+const LOGO_PATH = "/generated/67535dc2-354-mango-delight-logo.jpg";
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -78,21 +80,31 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Mango Delight | তাজা আম সরাসরি বাগান থেকে" },
+      {
+        name: "description",
+        content:
+          "Mango Delight থেকে সরাসরি বাগান থেকে তাজা, মিষ্টি ও রসালো আম কিনুন। সারা দেশে হোম ডেলিভারি, ক্যাশ অন ডেলিভারি।",
+      },
+      { name: "author", content: "Mango Delight" },
+      { property: "og:title", content: "Mango Delight | তাজা আম সরাসরি বাগান থেকে" },
+      {
+        property: "og:description",
+        content:
+          "সরাসরি বাগান থেকে তাজা, মিষ্টি ও রসালো আম কিনুন। সারা দেশে হোম ডেলিভারি, ক্যাশ অন ডেলিভারি।",
+      },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: LOGO_PATH },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:image", content: LOGO_PATH },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: LOGO_PATH, type: "image/jpeg" },
+      { rel: "apple-touch-icon", href: LOGO_PATH },
     ],
   }),
   shellComponent: RootShell,
@@ -103,7 +115,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="bn">
       <head>
         <HeadContent />
       </head>

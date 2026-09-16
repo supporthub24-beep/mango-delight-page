@@ -49,7 +49,13 @@ export const Route = createFileRoute("/")({
           "সরাসরি বাগান থেকে তাজা, মিষ্টি ও রসালো আম কিনুন। সারা দেশে হোম ডেলিভারি, ক্যাশ অন ডেলিভারি।",
       },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: LOGO_PATH },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: LOGO_PATH },
+    ],
+    links: [
+      { rel: "icon", href: LOGO_PATH, type: "image/jpeg" },
+      { rel: "apple-touch-icon", href: LOGO_PATH },
     ],
   }),
   component: MangoLandingPage,
@@ -74,6 +80,7 @@ const HERO_FALLBACK_IMAGE =
   "https://images.unsplash.com/photo-1553279768-865429fa0078?q=80&w=1200&auto=format&fit=crop";
 const QUALITY_FALLBACK_IMAGE =
   "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?q=80&w=1200&auto=format&fit=crop";
+const LOGO_PATH = "/generated/67535dc2-354-mango-delight-logo.jpg";
 
 const mangoVarieties: MangoVariety[] = [
   {
@@ -355,6 +362,49 @@ function MangoLandingPage() {
 
   return (
     <div className="min-h-screen bg-[#FFF9E8] antialiased">
+      {/* Header / Brand */}
+      <header className="sticky top-0 z-40 border-b border-[#174A2E]/10 bg-[#FFF9E8]/90 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
+          <Link to="/" className="flex items-center gap-2.5" aria-label="Mango Delight হোমপেজ">
+            <img
+              src={LOGO_PATH}
+              alt="Mango Delight লোগো"
+              width={40}
+              height={40}
+              className="h-9 w-9 shrink-0 rounded-xl object-contain ring-1 ring-[#174A2E]/10 sm:h-10 sm:w-10"
+              loading="eager"
+            />
+            <span className="text-lg font-extrabold tracking-tight text-[#174A2E] sm:text-xl">
+              Mango Delight
+            </span>
+          </Link>
+          <nav aria-label="প্রধান নেভিগেশন" className="flex items-center gap-1 sm:gap-2">
+            <a
+              href="#varieties"
+              className="rounded-lg px-2.5 py-2 text-xs font-semibold text-[#174A2E]/80 transition-colors hover:bg-[#174A2E]/5 hover:text-[#174A2E] sm:px-3 sm:text-sm"
+            >
+              আমের ভ্যারাইটি
+            </a>
+            <a
+              href="#order"
+              className="rounded-lg px-2.5 py-2 text-xs font-semibold text-[#174A2E]/80 transition-colors hover:bg-[#174A2E]/5 hover:text-[#174A2E] sm:px-3 sm:text-sm"
+            >
+              অর্ডার
+            </a>
+            <Button
+              size="sm"
+              className="ml-1 h-9 rounded-xl bg-[#2E7D32] px-3 text-xs font-bold text-white hover:bg-[#256628] sm:px-4 sm:text-sm"
+              asChild
+            >
+              <a href="tel:+8801700000000">
+                <Phone className="h-3.5 w-3.5" aria-hidden="true" />
+                কল করুন
+              </a>
+            </Button>
+          </nav>
+        </div>
+      </header>
+
       {/* Top Offer Bar */}
       <div className="relative bg-[#174A2E] text-white">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-3 sm:flex-row sm:px-6 lg:px-8">
@@ -1036,7 +1086,17 @@ function MangoLandingPage() {
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             <div className="sm:col-span-2 lg:col-span-1">
-              <h3 className="text-xl font-extrabold tracking-tight text-[#F6B800]">আমঘর</h3>
+              <div className="flex items-center gap-2.5">
+                <img
+                  src={LOGO_PATH}
+                  alt="Mango Delight লোগো"
+                  width={40}
+                  height={40}
+                  className="h-10 w-10 shrink-0 rounded-xl object-contain ring-1 ring-white/15"
+                  loading="lazy"
+                />
+                <h3 className="text-xl font-extrabold tracking-tight text-[#F6B800]">Mango Delight</h3>
+              </div>
               <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/70">
                 সরাসরি বাগান থেকে তাজা, মিষ্টি ও রসালো আম। ফরমালিনমুক্ত, সারা দেশে হোম ডেলিভারি — বিশ্বাসের সাথে ২০১৮ থেকে।
               </p>

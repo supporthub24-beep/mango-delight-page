@@ -24,23 +24,31 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 
+const LOGO_PATH = "/generated/67535dc2-354-mango-delight-logo.jpg";
+
 export const Route = createFileRoute("/mango")({
   head: () => ({
     meta: [
-      { title: "আমঘর | তাজা আম সরাসরি বাগান থেকে" },
+      { title: "Mango Delight | তাজা আম সরাসরি বাগান থেকে" },
       {
         name: "description",
         content:
-          "আমঘর থেকে সরাসরি বাগান থেকে তাজা, মিষ্টি ও রসালো আম কিনুন। হিমসাগর, ল্যাংড়া, আম্রপালি ও ফজলি — সারা দেশে হোম ডেলিভারি, ক্যাশ অন ডেলিভারি।",
+          "Mango Delight থেকে সরাসরি বাগান থেকে তাজা, মিষ্টি ও রসালো আম কিনুন। হিমসাগর, ল্যাংড়া, আম্রপালি ও ফজলি — সারা দেশে হোম ডেলিভারি, ক্যাশ অন ডেলিভারি।",
       },
-      { property: "og:title", content: "আমঘর | তাজা আম সরাসরি বাগান থেকে" },
+      { property: "og:title", content: "Mango Delight | তাজা আম সরাসরি বাগান থেকে" },
       {
         property: "og:description",
         content:
           "সরাসরি বাগান থেকে তাজা, মিষ্টি ও রসালো আম কিনুন। সারা দেশে হোম ডেলিভারি, ক্যাশ অন ডেলিভারি।",
       },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: LOGO_PATH },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: LOGO_PATH },
+    ],
+    links: [
+      { rel: "icon", href: LOGO_PATH, type: "image/jpeg" },
+      { rel: "apple-touch-icon", href: LOGO_PATH },
     ],
   }),
   component: MangoLandingPage,
@@ -337,6 +345,49 @@ function MangoLandingPage() {
 
   return (
     <div className="min-h-screen bg-[#FFF9E8]">
+      {/* Header / Brand */}
+      <header className="sticky top-0 z-40 border-b border-[#174A2E]/10 bg-[#FFF9E8]/90 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
+          <Link to="/mango" className="flex items-center gap-2.5" aria-label="Mango Delight হোমপেজ">
+            <img
+              src={LOGO_PATH}
+              alt="Mango Delight লোগো"
+              width={40}
+              height={40}
+              className="h-9 w-9 shrink-0 rounded-xl object-contain ring-1 ring-[#174A2E]/10 sm:h-10 sm:w-10"
+              loading="eager"
+            />
+            <span className="text-lg font-extrabold tracking-tight text-[#174A2E] sm:text-xl">
+              Mango Delight
+            </span>
+          </Link>
+          <nav aria-label="প্রধান নেভিগেশন" className="flex items-center gap-1 sm:gap-2">
+            <a
+              href="#varieties"
+              className="rounded-lg px-2.5 py-2 text-xs font-semibold text-[#174A2E]/80 transition-colors hover:bg-[#174A2E]/5 hover:text-[#174A2E] sm:px-3 sm:text-sm"
+            >
+              আমের ভ্যারাইটি
+            </a>
+            <a
+              href="#order"
+              className="rounded-lg px-2.5 py-2 text-xs font-semibold text-[#174A2E]/80 transition-colors hover:bg-[#174A2E]/5 hover:text-[#174A2E] sm:px-3 sm:text-sm"
+            >
+              অর্ডার
+            </a>
+            <Button
+              size="sm"
+              className="ml-1 h-9 rounded-xl bg-[#2E7D32] px-3 text-xs font-bold text-white hover:bg-[#256628] sm:px-4 sm:text-sm"
+              asChild
+            >
+              <a href="tel:+8801700000000">
+                <Phone className="h-3.5 w-3.5" aria-hidden="true" />
+                কল করুন
+              </a>
+            </Button>
+          </nav>
+        </div>
+      </header>
+
       {/* Countdown Offer Banner */}
       <div className="bg-[#174A2E] text-white">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-3 py-2.5 sm:flex-row sm:px-6 sm:py-3 lg:px-8">
@@ -900,7 +951,17 @@ function MangoLandingPage() {
         <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
           <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
             <div>
-              <h3 className="text-lg font-bold text-[#F6B800] sm:text-xl">আমঘর</h3>
+              <div className="flex items-center gap-2.5">
+                <img
+                  src={LOGO_PATH}
+                  alt="Mango Delight লোগো"
+                  width={36}
+                  height={36}
+                  className="h-9 w-9 shrink-0 rounded-xl object-contain ring-1 ring-white/15"
+                  loading="lazy"
+                />
+                <h3 className="text-lg font-bold text-[#F6B800] sm:text-xl">Mango Delight</h3>
+              </div>
               <p className="mt-2 text-xs text-white/80 sm:mt-4 sm:text-sm">
                 সরাসরি বাগান থেকে তাজা, মিষ্টি ও রসালো আম। ফরমালিনমুক্ত, সারা দেশে হোম ডেলিভারি।
               </p>
@@ -942,22 +1003,28 @@ function MangoLandingPage() {
               <h4 className="text-sm font-semibold text-[#F6B800] sm:text-base">সোশ্যাল মিডিয়া</h4>
               <div className="mt-2 flex gap-2.5 sm:mt-4 sm:gap-3">
                 <a
-                  href="#"
-                  aria-label="ফেসবুক"
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="ফেসবুকে Mango Delight"
                   className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-[#F6B800] hover:text-[#174A2E] sm:h-10 sm:w-10"
                 >
                   <Facebook className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
                 </a>
                 <a
-                  href="#"
-                  aria-label="ইনস্টাগ্রাম"
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="ইনস্টাগ্রামে Mango Delight"
                   className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-[#F6B800] hover:text-[#174A2E] sm:h-10 sm:w-10"
                 >
                   <Instagram className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
                 </a>
                 <a
-                  href="#"
-                  aria-label="ইউটিউব"
+                  href="https://www.youtube.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="ইউটিউবে Mango Delight"
                   className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-[#F6B800] hover:text-[#174A2E] sm:h-10 sm:w-10"
                 >
                   <Youtube className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
@@ -966,7 +1033,7 @@ function MangoLandingPage() {
             </div>
           </div>
           <div className="mt-6 border-t border-white/10 pt-6 text-center text-xs text-white/60 sm:mt-8 sm:pt-8 sm:text-sm">
-            © {new Date().getFullYear()} আমঘর — সর্বস্বত্ব সংরক্ষিত।
+            © {new Date().getFullYear()} Mango Delight — সর্বস্বত্ব সংরক্ষিত।
           </div>
         </div>
       </footer>
