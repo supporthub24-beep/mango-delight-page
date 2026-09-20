@@ -523,7 +523,7 @@ function MangoLandingPage() {
 
       {/* Hero Section */}
       <section
-        className="relative overflow-hidden"
+        className="relative overflow-hidden bg-gradient-to-b from-[#FFF9E8] via-white to-[#FFF9E8]"
         aria-roledescription="ক্যারোসেল"
         aria-label="আমঘর হিরো ব্যানার"
         onMouseEnter={() => setBannerPaused(true)}
@@ -531,14 +531,16 @@ function MangoLandingPage() {
         onFocusCapture={() => setBannerPaused(true)}
         onBlurCapture={() => setBannerPaused(false)}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-[#F6B800]/30 via-[#FFF9E8] to-[#FFF9E8]" aria-hidden="true" />
-        <div className="absolute inset-x-0 top-0 h-[520px] bg-[radial-gradient(65%_65%_at_50%_0%,rgba(246,184,0,0.38),transparent_72%)]" aria-hidden="true" />
-        <div className="absolute -top-24 -right-24 h-80 w-80 rounded-full bg-[#F6B800]/40 blur-3xl sm:h-[28rem] sm:w-[28rem]" aria-hidden="true" />
-        <div className="absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-[#2E7D32]/20 blur-3xl" aria-hidden="true" />
-        <div className="relative mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(246,184,0,0.15),transparent_50%)]" aria-hidden="true" />
+        <div className="absolute right-0 top-0 h-[600px] w-[600px] bg-[radial-gradient(circle,rgba(46,125,50,0.08),transparent_70%)]" aria-hidden="true" />
+        <div className="absolute bottom-0 left-0 h-[500px] w-[500px] bg-[radial-gradient(circle,rgba(246,184,0,0.12),transparent_70%)]" aria-hidden="true" />
+        
+        <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
           <div className="relative">
-            <div className="relative overflow-hidden rounded-[28px] border-2 border-white bg-white/70 shadow-2xl shadow-[#174A2E]/20 ring-1 ring-[#F6B800]/25 backdrop-blur-xl sm:rounded-[32px]">
-              <div className="relative min-h-[560px] sm:min-h-[520px] lg:min-h-[480px]">
+            <div className="relative overflow-hidden rounded-3xl border border-white/80 bg-gradient-to-br from-white/95 via-white/90 to-white/95 shadow-[0_20px_70px_-15px_rgba(23,74,46,0.25)] backdrop-blur-2xl sm:rounded-[40px]">
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]" aria-hidden="true" />
+              
+              <div className="relative min-h-[600px] sm:min-h-[560px] lg:min-h-[520px]">
                 {heroBanners.map((banner, index) => {
                   const isActive = index === activeBanner;
                   return (
@@ -548,74 +550,58 @@ function MangoLandingPage() {
                       aria-roledescription="স্লাইড"
                       aria-label={`${index + 1} / ${heroBanners.length} — ${banner.headline} ${banner.highlight}`}
                       aria-hidden={!isActive}
-                      className={`absolute inset-0 transition-opacity duration-700 ease-out ${
+                      className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
                         isActive ? "opacity-100" : "pointer-events-none opacity-0"
                       }`}
                     >
-                      <img
-                        src={banner.image}
-                        onError={(e) => handleImageFallback(e, HERO_FALLBACK_IMAGE)}
-                        alt={banner.imageAlt}
-                        className="absolute inset-0 h-full w-full object-cover object-center"
-                        loading={index === 0 ? "eager" : "lazy"}
-                      />
-                      <div
-                        className="absolute inset-0 bg-gradient-to-r from-[#174A2E]/92 via-[#174A2E]/70 to-[#174A2E]/25"
-                        aria-hidden="true"
-                      />
-                      <div
-                        className={`relative flex h-full min-h-[560px] items-center px-5 py-12 sm:min-h-[520px] sm:px-10 sm:py-14 lg:min-h-[480px] lg:px-14 ${
-                          banner.align === "right" ? "justify-end text-right" : "justify-start text-left"
-                        }`}
-                      >
-                        <div className={`max-w-xl ${banner.align === "right" ? "ml-auto" : ""}`}>
-                          <div className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/15 px-3.5 py-2 shadow-md backdrop-blur">
-                            <span className={`flex h-6 w-6 items-center justify-center rounded-full shadow-sm ${banner.accentText}`}>
-                              <Award className="h-3.5 w-3.5" aria-hidden="true" />
+                      <div className="grid h-full items-center gap-8 lg:grid-cols-2 lg:gap-12">
+                        <div className={`relative z-10 px-6 py-12 sm:px-10 sm:py-16 lg:px-14 ${banner.align === "right" ? "lg:order-2" : ""}`}>
+                          <div className="inline-flex items-center gap-2.5 rounded-full border border-[#174A2E]/10 bg-gradient-to-r from-[#FFF9E8] to-white px-4 py-2.5 shadow-sm">
+                            <span className={`flex h-7 w-7 items-center justify-center rounded-full ${banner.accentText}`}>
+                              <Award className="h-4 w-4" aria-hidden="true" />
                             </span>
-                            <span className="text-xs font-bold tracking-wide text-white sm:text-sm">
-                              আমঘর — বিশ্বস্ত আম বিক্রেতা ২০১৮ থেকে
+                            <span className="text-xs font-bold tracking-wide text-[#174A2E] sm:text-sm">
+                              বিশ্বস্ত আম বিক্রেতা ২০১৮ থেকে
                             </span>
-                            <Sparkles className="hidden h-3.5 w-3.5 text-[#F6B800] sm:block" aria-hidden="true" />
                           </div>
 
                           {index === 0 ? (
-                            <h1 className="mt-6 text-balance text-[34px] font-black uppercase leading-[1.02] tracking-tighter text-white sm:mt-7 sm:text-[52px] lg:text-[64px]">
+                            <h1 className="mt-6 text-balance text-[40px] font-black leading-[1.05] tracking-tighter text-[#174A2E] sm:mt-8 sm:text-[56px] lg:text-[68px]">
                               {banner.headline}
+                              <br />
                               <span className="relative inline-block">
-                                <span className="relative z-10 px-1"> {banner.highlight}</span>
+                                <span className="relative z-10">{banner.highlight}</span>
                                 <span
-                                  className={`absolute bottom-1 left-0 -z-0 h-4 w-full rounded-full bg-gradient-to-r sm:h-6 ${banner.accent}`}
+                                  className={`absolute bottom-2 left-0 -z-0 h-5 w-full bg-gradient-to-r opacity-40 sm:h-7 ${banner.accent}`}
                                   aria-hidden="true"
                                 />
-                              </span>{" "}
-                              থেকে আপনার ঘরে
+                              </span>
                             </h1>
                           ) : (
-                            <p className="mt-6 text-balance text-[34px] font-black uppercase leading-[1.02] tracking-tighter text-white sm:mt-7 sm:text-[52px] lg:text-[64px]">
+                            <p className="mt-6 text-balance text-[40px] font-black leading-[1.05] tracking-tighter text-[#174A2E] sm:mt-8 sm:text-[56px] lg:text-[68px]">
                               {banner.headline}
+                              <br />
                               <span className="relative inline-block">
-                                <span className="relative z-10 px-1"> {banner.highlight}</span>
+                                <span className="relative z-10">{banner.highlight}</span>
                                 <span
-                                  className={`absolute bottom-1 left-0 -z-0 h-4 w-full rounded-full bg-gradient-to-r sm:h-6 ${banner.accent}`}
+                                  className={`absolute bottom-2 left-0 -z-0 h-5 w-full bg-gradient-to-r opacity-40 sm:h-7 ${banner.accent}`}
                                   aria-hidden="true"
                                 />
                               </span>
                             </p>
                           )}
 
-                          <p className="mt-5 max-w-xl text-pretty text-[15px] font-medium leading-relaxed text-white/85 sm:mt-6 sm:text-lg sm:leading-8">
-                            {banner.subtext}
-                          </p>
+                          <div className="mt-6 flex items-start gap-3 rounded-2xl border border-[#174A2E]/10 bg-gradient-to-br from-[#FFF9E8]/80 to-white/80 p-5 shadow-sm backdrop-blur-sm sm:mt-7">
+                            <Quote className="h-6 w-6 shrink-0 text-[#F6B800]" aria-hidden="true" />
+                            <p className="text-[15px] font-medium leading-relaxed text-[#174A2E]/80 sm:text-lg sm:leading-8">
+                              {banner.subtext}
+                            </p>
+                          </div>
 
-                          <div
-                            className={`mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row ${
-                              banner.align === "right" ? "sm:justify-end" : "sm:justify-start"
-                            }`}
-                          >
+                          <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row">
                             <Button
                               size="lg"
-                              className="group h-[60px] w-full rounded-2xl bg-gradient-to-b from-[#2E7D32] to-[#174A2E] px-9 text-base font-extrabold tracking-wide text-white shadow-xl shadow-[#174A2E]/30 ring-1 ring-[#174A2E]/20 transition-all hover:-translate-y-0.5 hover:from-[#256628] hover:to-[#123A24] hover:shadow-2xl hover:shadow-[#174A2E]/40 sm:w-auto"
+                              className="group h-14 rounded-2xl bg-gradient-to-br from-[#2E7D32] to-[#174A2E] px-8 text-base font-bold text-white shadow-lg shadow-[#174A2E]/20 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-[#174A2E]/30"
                               asChild
                             >
                               <a href={banner.ctaHref}>
@@ -626,7 +612,7 @@ function MangoLandingPage() {
                             <Button
                               size="lg"
                               variant="outline"
-                              className="h-[60px] w-full rounded-2xl border-2 border-white/40 bg-white/10 px-9 text-base font-bold text-white shadow-md backdrop-blur transition-all hover:-translate-y-0.5 hover:border-white/70 hover:bg-white/20 hover:text-white sm:w-auto"
+                              className="h-14 rounded-2xl border-2 border-[#174A2E]/20 bg-white px-8 text-base font-bold text-[#174A2E] shadow-sm transition-all hover:-translate-y-1 hover:border-[#174A2E]/40 hover:bg-[#FFF9E8] hover:shadow-md"
                               asChild
                             >
                               <a href={banner.secondaryHref}>
@@ -636,28 +622,56 @@ function MangoLandingPage() {
                             </Button>
                           </div>
 
-                          <div
-                            className={`mt-9 flex flex-wrap items-center gap-2 sm:gap-3 ${
-                              banner.align === "right" ? "justify-end" : "justify-start"
-                            }`}
-                          >
-                            <div className="inline-flex items-center gap-2 rounded-full bg-white/90 px-3.5 py-2 text-xs font-bold text-[#174A2E] shadow-md ring-1 ring-white/40 sm:px-4">
-                              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#F6B800]/25">
-                                <Star className="h-3.5 w-3.5 fill-[#F6B800] text-[#F6B800]" aria-hidden="true" />
-                              </span>
-                              ৪.৮/৫ রেটিং • ৩০০+ রিভিউ
+                          <div className="mt-8 flex flex-wrap items-center gap-3">
+                            <div className="inline-flex items-center gap-2 rounded-full border border-[#174A2E]/10 bg-white px-4 py-2.5 shadow-sm">
+                              <Star className="h-4 w-4 fill-[#F6B800] text-[#F6B800]" aria-hidden="true" />
+                              <span className="text-xs font-bold text-[#174A2E]">৪.৮/৫ • ৩০০+ রিভিউ</span>
                             </div>
-                            <div className="inline-flex items-center gap-2 rounded-full bg-white/90 px-3.5 py-2 text-xs font-bold text-[#174A2E] shadow-md ring-1 ring-white/40 sm:px-4">
-                              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#2E7D32]/15">
-                                <ShieldCheck className="h-3.5 w-3.5 text-[#2E7D32]" aria-hidden="true" />
-                              </span>
-                              ১০০% ফরমালিনমুক্ত
+                            <div className="inline-flex items-center gap-2 rounded-full border border-[#174A2E]/10 bg-white px-4 py-2.5 shadow-sm">
+                              <ShieldCheck className="h-4 w-4 text-[#2E7D32]" aria-hidden="true" />
+                              <span className="text-xs font-bold text-[#174A2E]">১০০% ফরমালিনমুক্ত</span>
                             </div>
-                            <div className="inline-flex items-center gap-2 rounded-full bg-white/90 px-3.5 py-2 text-xs font-bold text-[#174A2E] shadow-md ring-1 ring-white/40 sm:px-4">
-                              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#2E7D32]/15">
-                                <Truck className="h-3.5 w-3.5 text-[#2E7D32]" aria-hidden="true" />
+                            <div className="inline-flex items-center gap-2 rounded-full border border-[#174A2E]/10 bg-white px-4 py-2.5 shadow-sm">
+                              <Truck className="h-4 w-4 text-[#2E7D32]" aria-hidden="true" />
+                              <span className="text-xs font-bold text-[#174A2E]">সারা দেশে ডেলিভারি</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className={`relative hidden lg:block ${banner.align === "right" ? "lg:order-1" : ""}`}>
+                          <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
+                            <img
+                              src={banner.image}
+                              onError={(e) => handleImageFallback(e, HERO_FALLBACK_IMAGE)}
+                              alt={banner.imageAlt}
+                              className="h-full w-full object-cover object-center"
+                              loading={index === 0 ? "eager" : "lazy"}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#174A2E]/20 via-transparent to-transparent" aria-hidden="true" />
+                          </div>
+                          
+                          <div className="absolute -bottom-6 -right-6 rounded-2xl border border-white/80 bg-white/95 p-5 shadow-xl backdrop-blur-sm">
+                            <div className="flex items-center gap-3">
+                              <span className={`flex h-12 w-12 items-center justify-center rounded-xl ${banner.accentText}`}>
+                                <ShieldCheck className="h-6 w-6" aria-hidden="true" />
                               </span>
-                              সারা দেশে ডেলিভারি
+                              <div>
+                                <p className="text-sm font-bold text-[#174A2E]">১০০% নিশ্চয়তা</p>
+                                <p className="text-xs text-[#174A2E]/60">ফরমালিনমুক্ত ও তাজা</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="absolute -left-6 top-8 rounded-2xl border border-white/80 bg-white/95 p-4 shadow-xl backdrop-blur-sm">
+                            <div className="flex items-center gap-2.5">
+                              <div className="flex -space-x-2">
+                                <span className="h-8 w-8 rounded-full border-2 border-white bg-[#F6B800]" aria-hidden="true" />
+                                <span className="h-8 w-8 rounded-full border-2 border-white bg-[#2E7D32]" aria-hidden="true" />
+                                <span className="h-8 w-8 rounded-full border-2 border-white bg-[#174A2E]" aria-hidden="true" />
+                              </div>
+                              <p className="text-xs font-semibold text-[#174A2E]">
+                                ১২০০+ সন্তুষ্ট গ্রাহক
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -671,7 +685,7 @@ function MangoLandingPage() {
                 type="button"
                 onClick={() => goToBanner(activeBanner - 1)}
                 aria-label="আগের ব্যানার"
-                className="absolute left-3 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-white/85 text-[#174A2E] shadow-lg backdrop-blur transition-all hover:-translate-y-1/2 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F6B800] focus-visible:ring-offset-2 sm:left-5"
+                className="absolute left-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-[#174A2E]/10 bg-white/95 text-[#174A2E] shadow-lg backdrop-blur-sm transition-all hover:scale-105 hover:border-[#174A2E]/20 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2E7D32] focus-visible:ring-offset-2 sm:left-6"
               >
                 <ChevronRight className="h-5 w-5 rotate-180" aria-hidden="true" />
               </button>
@@ -679,13 +693,13 @@ function MangoLandingPage() {
                 type="button"
                 onClick={() => goToBanner(activeBanner + 1)}
                 aria-label="পরের ব্যানার"
-                className="absolute right-3 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-white/85 text-[#174A2E] shadow-lg backdrop-blur transition-all hover:-translate-y-1/2 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F6B800] focus-visible:ring-offset-2 sm:right-5"
+                className="absolute right-4 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-[#174A2E]/10 bg-white/95 text-[#174A2E] shadow-lg backdrop-blur-sm transition-all hover:scale-105 hover:border-[#174A2E]/20 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2E7D32] focus-visible:ring-offset-2 sm:right-6"
               >
                 <ChevronRight className="h-5 w-5" aria-hidden="true" />
               </button>
 
               <div
-                className="absolute inset-x-0 bottom-4 z-20 flex items-center justify-center gap-2"
+                className="absolute inset-x-0 bottom-6 z-20 flex items-center justify-center gap-2.5"
                 role="tablist"
                 aria-label="ব্যানার নির্বাচন"
               >
@@ -697,27 +711,14 @@ function MangoLandingPage() {
                     aria-selected={index === activeBanner}
                     aria-label={`ব্যানার ${index + 1}: ${banner.headline} ${banner.highlight}`}
                     onClick={() => goToBanner(index)}
-                    className={`h-2.5 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F6B800] focus-visible:ring-offset-2 ${
+                    className={`rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2E7D32] focus-visible:ring-offset-2 ${
                       index === activeBanner
-                        ? "w-8 bg-[#F6B800]"
-                        : "w-2.5 bg-white/60 hover:bg-white/90"
+                        ? "h-3 w-10 bg-[#2E7D32] shadow-md"
+                        : "h-3 w-3 bg-[#174A2E]/25 hover:bg-[#174A2E]/40"
                     }`}
                   />
                 ))}
               </div>
-            </div>
-
-            <div className="pointer-events-none absolute -right-2 -top-2 z-20 hidden rounded-2xl border border-white/60 bg-white/80 px-4 py-3 shadow-xl ring-1 ring-[#174A2E]/5 backdrop-blur-xl sm:flex sm:items-center sm:gap-3">
-              <div className="flex -space-x-2">
-                <span className="h-7 w-7 rounded-full border-2 border-white bg-[#F6B800]" aria-hidden="true" />
-                <span className="h-7 w-7 rounded-full border-2 border-white bg-[#2E7D32]" aria-hidden="true" />
-                <span className="h-7 w-7 rounded-full border-2 border-white bg-[#174A2E]" aria-hidden="true" />
-              </div>
-              <p className="text-xs font-semibold leading-tight text-[#174A2E]">
-                ১২০০+ পরিবার
-                <br />
-                <span className="font-normal text-[#174A2E]/60">আমঘরকে বিশ্বাস করে</span>
-              </p>
             </div>
           </div>
         </div>
