@@ -305,16 +305,16 @@ function MangoLandingPage() {
     const errors: Record<string, string> = {};
 
     if (!formData.name.trim()) {
-      errors.name = "আপনার নাম লিখুন";
+      errors["name"] = "আপনার নাম লিখুন";
     }
     if (!validatePhone(formData.phone)) {
-      errors.phone = "সঠিক মোবাইল নম্বর দিন (যেমন: 017XXXXXXXX)";
+      errors["phone"] = "সঠিক মোবাইল নম্বর দিন (যেমন: 017XXXXXXXX)";
     }
     if (!formData.address.trim()) {
-      errors.address = "ডেলিভারির ঠিকানা লিখুন";
+      errors["address"] = "ডেলিভারির ঠিকানা লিখুন";
     }
     if (!formData.variety) {
-      errors.variety = "আমের ভ্যারাইটি নির্বাচন করুন";
+      errors["variety"] = "আমের ভ্যারাইটি নির্বাচন করুন";
     }
 
     setFormErrors(errors);
@@ -740,15 +740,15 @@ function MangoLandingPage() {
                     value={formData.name}
                     onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
                     className={`h-11 w-full rounded-md border px-3 text-base text-[#174A2E] focus:outline-none focus:ring-2 focus:ring-[#2E7D32] sm:text-sm ${
-                      formErrors.name ? "border-red-500" : "border-[#2E7D32]/30"
+                      formErrors["name"] ? "border-red-500" : "border-[#2E7D32]/30"
                     }`}
                     placeholder="আপনার নাম লিখুন"
-                    aria-invalid={!!formErrors.name}
-                    aria-describedby={formErrors.name ? "name-error" : undefined}
+                    aria-invalid={!!formErrors["name"]}
+                    aria-describedby={formErrors["name"] ? "name-error" : undefined}
                   />
-                  {formErrors.name && (
+                  {formErrors["name"] && (
                     <p id="name-error" className="mt-1 text-xs text-red-500">
-                      {formErrors.name}
+                      {formErrors["name"]}
                     </p>
                   )}
                 </div>
@@ -765,15 +765,15 @@ function MangoLandingPage() {
                     value={formData.phone}
                     onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
                     className={`h-11 w-full rounded-md border px-3 text-base text-[#174A2E] focus:outline-none focus:ring-2 focus:ring-[#2E7D32] sm:text-sm ${
-                      formErrors.phone ? "border-red-500" : "border-[#2E7D32]/30"
+                      formErrors["phone"] ? "border-red-500" : "border-[#2E7D32]/30"
                     }`}
                     placeholder="01XXXXXXXXX"
-                    aria-invalid={!!formErrors.phone}
-                    aria-describedby={formErrors.phone ? "phone-error" : undefined}
+                    aria-invalid={!!formErrors["phone"]}
+                    aria-describedby={formErrors["phone"] ? "phone-error" : undefined}
                   />
-                  {formErrors.phone && (
+                  {formErrors["phone"] && (
                     <p id="phone-error" className="mt-1 text-xs text-red-500">
-                      {formErrors.phone}
+                      {formErrors["phone"]}
                     </p>
                   )}
                 </div>
@@ -789,16 +789,16 @@ function MangoLandingPage() {
                     value={formData.address}
                     onChange={(e) => setFormData((prev) => ({ ...prev, address: e.target.value }))}
                     className={`w-full rounded-md border p-3 text-base text-[#174A2E] focus:outline-none focus:ring-2 focus:ring-[#2E7D32] sm:text-sm ${
-                      formErrors.address ? "border-red-500" : "border-[#2E7D32]/30"
+                      formErrors["address"] ? "border-red-500" : "border-[#2E7D32]/30"
                     }`}
                     placeholder="বাসা/রোড/এলাকা/জেলা"
                     rows={3}
-                    aria-invalid={!!formErrors.address}
-                    aria-describedby={formErrors.address ? "address-error" : undefined}
+                    aria-invalid={!!formErrors["address"]}
+                    aria-describedby={formErrors["address"] ? "address-error" : undefined}
                   />
-                  {formErrors.address && (
+                  {formErrors["address"] && (
                     <p id="address-error" className="mt-1 text-xs text-red-500">
-                      {formErrors.address}
+                      {formErrors["address"]}
                     </p>
                   )}
                 </div>
