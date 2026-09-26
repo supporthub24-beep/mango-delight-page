@@ -814,10 +814,10 @@ function MangoLandingPage() {
                     value={formData.variety}
                     onChange={(e) => setFormData((prev) => ({ ...prev, variety: e.target.value }))}
                     className={`h-11 w-full rounded-md border px-3 text-base text-[#174A2E] focus:outline-none focus:ring-2 focus:ring-[#2E7D32] sm:text-sm ${
-                      formErrors.variety ? "border-red-500" : "border-[#2E7D32]/30"
+                      formErrors["variety"] ? "border-red-500" : "border-[#2E7D32]/30"
                     }`}
-                    aria-invalid={!!formErrors.variety}
-                    aria-describedby={formErrors.variety ? "variety-error" : undefined}
+                    aria-invalid={!!formErrors["variety"]}
+                    aria-describedby={formErrors["variety"] ? "variety-error" : undefined}
                   >
                     <option value="">ভ্যারাইটি নির্বাচন করুন</option>
                     {mangoVarieties.map((variety) => (
@@ -826,9 +826,9 @@ function MangoLandingPage() {
                       </option>
                     ))}
                   </select>
-                  {formErrors.variety && (
+                  {formErrors["variety"] && (
                     <p id="variety-error" className="mt-1 text-xs text-red-500">
-                      {formErrors.variety}
+                      {formErrors["variety"]}
                     </p>
                   )}
                 </div>
