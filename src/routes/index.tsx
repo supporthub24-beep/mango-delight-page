@@ -27,6 +27,7 @@ import {
   HeartHandshake,
 } from "lucide-react";
 import { toast } from "sonner";
+import { MangoRecommender } from "@/components/MangoRecommender";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -867,6 +868,8 @@ function MangoLandingPage() {
           </div>
         )}
       </section>
+
+      <MangoRecommender />
 
       {/* Why Us Section */}
       <section className="bg-white">
