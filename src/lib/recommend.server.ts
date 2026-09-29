@@ -43,7 +43,7 @@ export async function recommendMangoes(preferences: string, apiKey: string) {
   const text = await result.text;
   const match = text.match(/IDS:\s*(.+)\s*$/i);
   const ids = match
-    ? match[1].split(",").map((s) => s.trim().toLowerCase()).filter((s) => /^(himsagar|langra|amrapali|fazli)$/.test(s))
+    ? (match[1] ?? "").split(",").map((s) => s.trim().toLowerCase()).filter((s) => /^(himsagar|langra|amrapali|fazli)$/.test(s))
     : [];
   return { text: text.replace(/IDS:.*$/i, "").replace(/\*\*/g, "").trim(), ids };
 }

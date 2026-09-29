@@ -4,7 +4,7 @@ import { z } from "zod";
 export const getMangoRecommendation = createServerFn({ method: "POST" })
   .inputValidator((data) => z.object({ preferences: z.string().trim().min(3).max(500) }).parse(data))
   .handler(async ({ data }) => {
-    const apiKey = process.env.LOVABLE_API_KEY;
+    const apiKey = process.env['LOVABLE_API_KEY'];
     if (!apiKey) return { ok: false as const, error: "AI সেবা এখন চালু নেই।" };
     try {
       const { recommendMangoes } = await import("./recommend.server");
