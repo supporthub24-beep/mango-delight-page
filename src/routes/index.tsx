@@ -67,6 +67,8 @@ type MangoVariety = {
   name: string;
   banglaName: string;
   pricePerKg: number;
+  indiaPricePerKg: number;
+  indiaMarket: string;
   unit: string;
   description: string;
   image: string;
@@ -156,6 +158,8 @@ const mangoVarieties: MangoVariety[] = [
     name: "Himsagar",
     banglaName: "হিমসাগর",
     pricePerKg: 120,
+    indiaPricePerKg: 120,
+    indiaMarket: "মালদা ও মুর্শিদাবাদ, পশ্চিমবঙ্গ",
     unit: "প্রতি কেজি",
     description: "চাঁপাইনবাবগঞ্জের বিখ্যাত হিমসাগর — আঁশহীন, মিষ্টি ও রসালো।",
     image: HERO_IMAGE_PATH,
@@ -170,6 +174,8 @@ const mangoVarieties: MangoVariety[] = [
     name: "Langra",
     banglaName: "ল্যাংড়া",
     pricePerKg: 110,
+    indiaPricePerKg: 100,
+    indiaMarket: "মালদা, পশ্চিমবঙ্গ ও বারাণসী, উত্তরপ্রদেশ",
     unit: "প্রতি কেজি",
     description: "সুগন্ধি ও মিষ্টি ল্যাংড়া আম, পাকলে সোনালি রঙ ধারণ করে।",
     image:
@@ -184,6 +190,8 @@ const mangoVarieties: MangoVariety[] = [
     name: "Amrapali",
     banglaName: "আম্রপালি",
     pricePerKg: 100,
+    indiaPricePerKg: 90,
+    indiaMarket: "দিল্লি ও কলকাতা বাজার",
     unit: "প্রতি কেজি",
     description: "গাঢ় কমলা রঙের আম্রপালি, অত্যন্ত মিষ্টি ও পুষ্টিকর।",
     image:
@@ -198,6 +206,8 @@ const mangoVarieties: MangoVariety[] = [
     name: "Fazli",
     banglaName: "ফজলি",
     pricePerKg: 90,
+    indiaPricePerKg: 80,
+    indiaMarket: "মালদা, পশ্চিমবঙ্গ",
     unit: "প্রতি কেজি",
     description: "বড় আকারের ফজলি আম, আঁশবিহীন ও দীর্ঘদিন সংরক্ষণযোগ্য।",
     image:
@@ -838,6 +848,10 @@ function MangoLandingPage() {
                       </div>
                     </div>
 
+                    <div className="mt-4 rounded-xl bg-[#FFF9E8] px-3 py-2 text-xs text-[#174A2E]/80">
+                      <p className="font-semibold">🇮🇳 ভারতীয় বাজারদর: ₹{variety.indiaPricePerKg.toLocaleString("bn-BD")} / কেজি</p>
+                      <p className="mt-0.5 text-[#174A2E]/60">পাওয়া যায়: {variety.indiaMarket}</p>
+                    </div>
                     <div className="mt-4 flex items-end justify-between gap-2 border-t border-[#174A2E]/5 pt-4">
                       <div>
                         <p className="text-[11px] font-semibold uppercase tracking-widest text-[#174A2E]/40">মোট মূল্য</p>
