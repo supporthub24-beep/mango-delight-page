@@ -15,7 +15,7 @@
  *
  * To add a new semantic color:
  * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ * 2. Register it in @theme inline as --color-<name> -> var(--<name>)
  */
 
 @theme inline {
@@ -167,4 +167,51 @@ a[href*="lovable.com"] {
   width: 0 !important;
   height: 0 !important;
   overflow: hidden !important;
+}
+
+/* Subtle visual polish scoped to the existing homepage wrapper. */
+[class~="min-h-screen"][class~="antialiased"] {
+  background-image:
+    radial-gradient(ellipse at 8% 16%, oklch(0.83 0.16 85 / 10%), transparent 36rem),
+    radial-gradient(ellipse at 92% 42%, oklch(0.68 0.12 145 / 7%), transparent 40rem);
+}
+
+[class~="min-h-screen"][class~="antialiased"] > header {
+  box-shadow: 0 8px 28px -22px oklch(0.38 0.09 148 / 42%);
+  transition: box-shadow 220ms ease, background-color 220ms ease;
+}
+
+[class~="min-h-screen"][class~="antialiased"] > header:hover {
+  box-shadow: 0 10px 32px -22px oklch(0.38 0.09 148 / 52%);
+}
+
+[class~="min-h-screen"][class~="antialiased"] > section[aria-roledescription="ক্যারোসেল"] {
+  isolation: isolate;
+}
+
+[class~="min-h-screen"][class~="antialiased"] > section[aria-roledescription="ক্যারোসেল"] > div[class*="mx-auto"] > div.relative > div.relative.overflow-hidden {
+  border-color: oklch(1 0 0 / 94%);
+  box-shadow: 0 26px 80px -32px oklch(0.38 0.09 148 / 36%);
+  transition: box-shadow 280ms ease, border-color 280ms ease;
+}
+
+[class~="min-h-screen"][class~="antialiased"] > section[aria-roledescription="ক্যারোসেল"] > div[class*="mx-auto"] > div.relative > div.relative.overflow-hidden:hover {
+  border-color: oklch(0.83 0.16 85 / 48%);
+  box-shadow: 0 32px 90px -34px oklch(0.38 0.09 148 / 44%);
+}
+
+[class~="min-h-screen"][class~="antialiased"] a,
+[class~="min-h-screen"][class~="antialiased"] button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+[class~="min-h-screen"][class~="antialiased"] :focus-visible {
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [class~="min-h-screen"][class~="antialiased"] > header,
+  [class~="min-h-screen"][class~="antialiased"] > section[aria-roledescription="ক্যারোসেল"] > div[class*="mx-auto"] > div.relative > div.relative.overflow-hidden {
+    transition: none;
+  }
 }
